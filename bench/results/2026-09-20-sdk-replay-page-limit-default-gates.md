@@ -53,4 +53,4 @@ The matched flame runs use the same fanout-50 workload and Node 24. The candidat
 
 ## Publication
 
-This branch is independent of the Priority 4 World capability stack. The source worktree still has benchmark-only untracked fixtures and `.pnpm-store/`; these are not part of the commit. The final review gate is green; no push or PR has been performed.
+This branch is independent of the Priority 4 World capability stack. The source worktree contains benchmark-only untracked fixtures and `.pnpm-store/`; these are not part of the implementation commit. The final review gate is green.

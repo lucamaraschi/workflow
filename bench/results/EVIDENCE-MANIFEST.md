@@ -20,6 +20,15 @@ that branch.
 - [Priority 6 — replay page limit](2026-09-20-sdk-replay-page-limit-default-gates.md)
 - [Priority 7 — inline-step default](2026-09-20-sdk-inline-step-limit-default-gates.md)
 
+## Candidate-head refresh notes
+
+- [SDK P1/P2 refresh](2026-09-24-sdk-candidate-head-refresh.md)
+- [World P4/P5 refresh](2026-09-24-world-capability-wait-refresh.md)
+- [P4 authenticated capability smoke](2026-09-24-p4-live-capability-smoke.md)
+
+Priority 3 remains listed for historical provenance, but it is excluded from
+the current hardening and publication refresh.
+
 Each report links to the retained machine-readable benchmark results and the
 matched control/candidate flame artifacts used for its decision. The reports
 are the authoritative interpretation; raw JSON and rendered flame files are

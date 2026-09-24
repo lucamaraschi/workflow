@@ -4,12 +4,15 @@ Date: 2026-09-19
 SDK checkout: `/Users/batman/src/platformatic/workflow-sdk-source-sharding-gates`  
 Branch: `perf/sdk-source-sharding-gates`  
 Base: `7840c15617c801e0df8f0a85145f43de25f96cc4` (latest upstream main at the start of the gate run)  
-Commits: `4774f6827`, `f9a18972c`, `9030c92e0`
+Historical gate commits: `4774f6827`, `f9a18972c`, `9030c92e0`
 
 Rebase record (2026-09-23): the branch was cleanly rebased onto SDK
 `upstream/main` `69e80c6f7` and now ends at `dd1ad1354`, including the affected-
-package changeset and DCO-signed commits. The post-rebase targeted smoke passed
-8/8; the performance artifacts below are the retained pre-rebase gate runs.
+package changeset and DCO-signed commits. The later hardening commit
+`16fca55d7` is the current branch head. The post-rebase targeted smoke passed
+8/8; the hardening smoke passed 9/9. The performance artifacts below are the
+retained pre-rebase gate runs; the current-head refresh is a shorter unprofiled
+check rather than a replacement for those gate runs.
 
 ## Decision
 
@@ -26,9 +29,9 @@ The implementation remains opt-in (`WORKFLOW_SHARD_VM_BUNDLES=1`) because the de
 | Workflow hooks | Fixture references `WORKFLOW_CREATE_HOOK` and unique hook tokens; both selected shards retain the hook code. | Pass |
 | Inline sourcemaps | Fixture build uses `sourcemap: true`; both selected shards contain an inline `sourceMappingURL=data:application/json`. | Pass |
 | Deterministic graph handoff | Explicit discovered graph is reused; workflow-to-bundle map contains both workflow IDs. | Pass |
-| Production/watch policy | One shared `BaseBuilder` switch; `WORKFLOW_SHARD_VM_BUNDLES=1` enables production, while `config.watch=true` disables it. | Pass (8 targeted tests) |
+| Production/watch policy | One shared `BaseBuilder` switch; `WORKFLOW_SHARD_VM_BUNDLES=1` enables production, while `config.watch=true` disables it. | Pass (9 current-head targeted tests) |
 | Builder integrations | TypeScript/build checks passed for builders, core, SvelteKit, Nitro, Astro, Nest, Next, Vitest, and World simulator. The Nitro production fixture emitted a sharded build successfully. | Pass |
-| Runtime selector | Builders/core targeted tests: 8/8 pass; gzip decode, line split, delta patch, cache, and legacy forms are covered. | Pass |
+| Runtime selector | Builders/core targeted tests: 9/9 current-head pass; gzip decode, line split, delta patch, cache, deterministic generation invalidation, and legacy forms are covered. | Pass |
 | Real World integration | Latest World + Nitro + PostgreSQL, fanout, 3 fresh repetitions per arm, 50 steps/workflow, 1 KiB payload, concurrency 4, 20 ms polling. | Pass, 0 failures |
 | Mixed World version | Candidate SDK against the previous World commit `b2598c5d729d820124156c2572a88fbb81c61cdc`, after building its workflow service package. | Pass, 0 failures |
 | Linux Node 22 | Clean `node:22-bookworm` container; selector/gzip/delta smoke pass on Linux arm64. Clean dependency install plus `@workflow/utils`, `@workflow/errors`, `@workflow/core`, and `@workflow/builders` TypeScript builds pass. | Pass |
@@ -79,8 +82,28 @@ The matched source-sharding CPU capture remains the diagnostic attribution for t
 ## Test commands
 
 - `pnpm --filter @workflow/builders test` — **22 files / 254 tests passed** (expected duplicate-ID diagnostics are part of the fixtures).
-- `pnpm exec vitest run packages/builders/src/workflow-bundle-sharding.test.ts packages/core/src/runtime/workflow-code.test.ts` — **8 tests passed**.
+- `pnpm exec vitest run packages/builders/src/workflow-bundle-sharding.test.ts packages/core/src/runtime/workflow-code.test.ts` — **9 tests passed** on the hardened head; the failed-rebuild publication and deterministic-cache-generation regressions are included.
 - Adapter/core builds passed on the host; clean Linux Node 22 builds passed for the changed TypeScript dependency chain.
+
+## Candidate-head refresh (2026-09-24)
+
+The current branch head is `16fca55d710afc4f41befb16b436fa231372cc8f`, and the
+focused current-head smoke passes 9/9. A fresh unprofiled two-repetition World
+A/B against the same control shows:
+
+| Metric | Control | Candidate | Change |
+| --- | ---: | ---: | ---: |
+| Workflow runtime p50 | 2,808.5 ms | 1,581.5 ms | **−43.7%** |
+| Steps/s | 62.5 | 120 | **+92.0%** |
+| Ping p99 | 1,267.5 ms | 326 ms | **−74.3%** |
+| Failed requests | 0 | 0 | No regression |
+
+The refresh used a 10-second window, fanout 50, 1 KiB payload, concurrency 4,
+20 ms polling, and 200 ping/s. It is shorter and unprofiled, so the retained
+three-repetition 20-second A/B and flame remain the primary performance proof.
+See [`2026-09-24-sdk-candidate-head-refresh.md`](2026-09-24-sdk-candidate-head-refresh.md),
+[`rn-source-sharding-candidate-head-control-20260924.json`](rn-source-sharding-candidate-head-control-20260924.json),
+and [`rn-source-sharding-candidate-head-20260924.json`](rn-source-sharding-candidate-head-20260924.json).
 
 ## Recommendation
 

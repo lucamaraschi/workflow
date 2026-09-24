@@ -49,7 +49,8 @@ this is not introduced by the wait route and is not counted as a gate failure.
 
 ## Flame evidence
 
-Control profiles: [`flames/profiles-2026-09-20T16-44-02.314Z-pprof-cpu-bare-node-0-2026-09-20T16-44-03-803Z.html`](flames/profiles-2026-09-20T16-44-02.314Z-pprof-cpu-bare-node-0-2026-09-20T16-44-03-803Z.html)  
+Control profiles: [`flames/profiles-2026-09-20T16-44-02.314Z-pprof-cpu-bare-node-0-2026-09-20T16-44-03-803Z.html`](flames/profiles-2026-09-20T16-44-02.314Z-pprof-cpu-bare-node-0-2026-09-20T16-44-03-803Z.html)
+
 Candidate profiles: [`flames/profiles-2026-09-20T16-44-40.179Z-pprof-cpu-world-service-thread-1-0-2026-09-20T16-44-40-181Z.html`](flames/profiles-2026-09-20T16-44-40.179Z-pprof-cpu-world-service-thread-1-0-2026-09-20T16-44-40-181Z.html)
 
 The bare-node flame remains dominated by the workflow bundle and VM context
@@ -83,3 +84,27 @@ It reduces polling traffic and is safe when the listener is unavailable, but
 the public performance claim must remain bounded to observation traffic and the
 measured workload. Database connection limits and trigger migration rollout
 should remain explicit deployment checklist items.
+
+## Candidate-head refresh (2026-09-24)
+
+The candidate worktree is clean at
+`18b41e5f108f377361fd2b4c851ada9337eb3b79`
+(`test(world): cover terminal wait isolation and missing runs`), on top of
+World `origin/main` `7b9629822593e31c6d0d17a03cedfde9c41a6247`. The branch is
+ahead of `origin/main` by eight commits, all with DCO sign-offs, and
+`git diff --check` passes.
+
+Fresh candidate-head command:
+
+```sh
+export PATH=/Users/batman/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin:$PATH
+cd /Users/batman/src/platformatic/platformatic-world-terminal-wait-notify-pr
+pnpm -C packages/workflow test -- --test-name-pattern='wait|run'
+```
+
+Result: **160 tests passed, 0 failed, 0 cancelled** on Node `v24.19.0` in
+`12001.017375ms`. This includes the new missing-run `404` assertion and
+cross-tenant `/wait` isolation assertion. The refresh is a correctness/gate
+rerun; it does not replace the retained 400-RPS A/B and flame artifacts above.
+The reproducible refresh record is
+[`2026-09-24-world-capability-wait-refresh.md`](2026-09-24-world-capability-wait-refresh.md).

@@ -1,7 +1,7 @@
 # Priority 4 capability-rollout validation
 
 Date: 2026-09-20  
-Status: **Prepared locally; no branch pushed and no PR opened**
+Status: **Candidate-head gate refreshed; independent rollout still gated**
 
 Rebase record (2026-09-23): the route branch is now `ef76a22e` and the probe
 branch is now `9b95ad3`; both are rebased on World `origin/main`
@@ -76,3 +76,36 @@ updating the Platformatic World type range in the release wiring, and verifying
 that every production integration awaits `start()` or explicitly refreshes
 capabilities. Until then, describe Priority 4 as matched-version ready, not
 universally default-ready.
+
+## Candidate-head refresh (2026-09-24)
+
+The probe worktree is clean at `727a89fb110c41e6f4f4c4564a32c883ab164f45`
+(`test(world): reject invalid batch capability documents`). The route and SDK
+stack heads remain `ef76a22eb8b47bb91e55779edce86472ea4bb19d` and
+`4fbb74d47e3f12208e4b709e1cb7f711ed8d2e06`, respectively. All three branch
+heads have DCO-signed commits and `git diff --check` passes.
+
+Fresh candidate-head command:
+
+```sh
+export PATH=/Users/batman/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin:$PATH
+cd /Users/batman/src/platformatic/platformatic-world-create-batch-capability
+pnpm -C packages/world test
+```
+
+Result: **52 tests passed, 0 failed, 0 cancelled** on Node `v24.19.0` in
+`254.711625ms`. The focused capability cases now include the old protocol and
+malformed-document fail-closed regressions. The optional live workflow service
+integration was skipped because `http://localhost:3042` was not running; this
+refresh therefore proves the probe/client contract but not a deployed
+cross-version HTTP handshake. The reproducible refresh record is
+[`2026-09-24-world-capability-wait-refresh.md`](2026-09-24-world-capability-wait-refresh.md).
+
+The authenticated cross-version HTTP contract is also covered by an
+in-process World service and local TokenReview server. The smoke returned
+401 for an unauthenticated request, 200 for the valid app binding, and 403 for
+an app mismatch; it performed one capability request after `start()`, and
+kept the capability absent for a 404, old protocol, or malformed protocol.
+See [`2026-09-24-p4-live-capability-smoke.md`](2026-09-24-p4-live-capability-smoke.md).
+This closes the local handshake gate; deployed Kubernetes identity and
+production service checks remain CI/deployment validation.

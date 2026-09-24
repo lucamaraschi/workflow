@@ -8,8 +8,10 @@ World: latest upstream checkout (`651e84a2490f90f9459f12945383ad7c24d66c03`)
 Rebase record (2026-09-23): the branch was cleanly rebased onto SDK
 `upstream/main` `69e80c6f7`. The affected-package changeset is present, all
 branch commits carry DCO sign-off, and the post-rebase targeted smoke passed
-86/86. The performance artifacts below are the retained pre-rebase gate runs;
-the rebase changed no implementation behavior.
+86/86. A later current-head focused run passed 444/444 tests, and the value/
+logger matrices were refreshed on Node 24; see [the 2026-09-24 refresh](2026-09-24-sdk-candidate-head-refresh.md).
+The end-to-end performance and matched flame artifacts below remain the
+retained pre-rebase gate runs; the rebase changed no implementation behavior.
 
 ## Default-readiness gates
 

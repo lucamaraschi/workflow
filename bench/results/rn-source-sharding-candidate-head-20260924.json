@@ -1,0 +1,663 @@
+{
+  "benchmark": "W1",
+  "timestamp": "2026-09-24T15:19:00.091Z",
+  "system": {
+    "hostname": "zion",
+    "platform": "darwin",
+    "release": "27.0.0",
+    "cpus": 14,
+    "node": "v24.19.0"
+  },
+  "config": {
+    "topology": "t0",
+    "duration": 10,
+    "pingRps": 200,
+    "pingConnections": 20,
+    "workflowRpsExplicit": false,
+    "concurrency": 4,
+    "repetitions": 2,
+    "steps": 50,
+    "payloadBytes": 1024,
+    "workflowMode": "fanout",
+    "stepDelayMs": 0,
+    "slowEvery": 0,
+    "prepopulateEvents": 0,
+    "pollIntervalMs": 20,
+    "workflowSdkRoot": "/Users/batman/src/platformatic/workflow-sdk-source-sharding-gates",
+    "platformaticWorldRoot": "/Users/batman/src/platformatic/platformatic-world-audit-20260918",
+    "worldDatabaseUrl": "postgresql://wf:REDACTED@127.0.0.1:5434/rnrefresh_20260924_p1_candidate2?sslmode=disable",
+    "worldServicePort": 3050,
+    "basePort": 3041,
+    "wattConfig": "watt.json",
+    "wattConfigExplicit": false,
+    "runnerWorkers": 2,
+    "runnerWorkersExplicit": false,
+    "output": "/Users/batman/src/platformatic/workflowsdk-in-watt/bench/results/rn-source-sharding-candidate-head-20260924.json",
+    "keepData": false,
+    "pprof": false,
+    "fsProbe": false,
+    "runtimeProbe": false,
+    "sessionCostProbe": false,
+    "databaseProbe": false,
+    "worldProbe": false,
+    "effectivePollIntervalMs": 20
+  },
+  "aggregates": [
+    {
+      "concurrency": 4,
+      "topologies": {
+        "t0": {
+          "repetitions": 2,
+          "ping": {
+            "p50Ms": {
+              "repetitions": 2,
+              "median": 70,
+              "min": 60,
+              "max": 80
+            },
+            "p99Ms": {
+              "repetitions": 2,
+              "median": 326,
+              "min": 286,
+              "max": 366
+            },
+            "p99_9Ms": {
+              "repetitions": 2,
+              "median": 340,
+              "min": 299,
+              "max": 381
+            }
+          },
+          "workflows": {
+            "completionsPerSecond": {
+              "repetitions": 2,
+              "median": 2.4,
+              "min": 2.4,
+              "max": 2.4
+            },
+            "stepsPerSecond": {
+              "repetitions": 2,
+              "median": 120,
+              "min": 120,
+              "max": 120
+            },
+            "runtimeP50Ms": {
+              "repetitions": 2,
+              "median": 1581.5,
+              "min": 1579,
+              "max": 1584
+            },
+            "observationP50Ms": {
+              "repetitions": 2,
+              "median": 1581.5,
+              "min": 1579,
+              "max": 1584
+            },
+            "requestRoundTripP50Ms": {
+              "repetitions": 2,
+              "median": 1584.065104,
+              "min": 1581.485167,
+              "max": 1586.645041
+            },
+            "requestRoundTripP99Ms": {
+              "repetitions": 2,
+              "median": 1759.227687,
+              "min": 1727.398709,
+              "max": 1791.056666
+            },
+            "requestRoundTripMaxMs": {
+              "repetitions": 2,
+              "median": 1759.227687,
+              "min": 1727.398709,
+              "max": 1791.056666
+            },
+            "failed": 0
+          },
+          "fsProbe": {
+            "fsOpsPerStep": {
+              "repetitions": 0
+            },
+            "fsMsPerStep": {
+              "repetitions": 0
+            }
+          },
+          "load": {
+            "launchLagP99Ms": {
+              "repetitions": 2,
+              "median": 1.548771,
+              "min": 0.915584,
+              "max": 2.181958
+            },
+            "backlogSlopePerSecond": {
+              "repetitions": 2,
+              "median": 0,
+              "min": 0,
+              "max": 0
+            },
+            "endBacklog": {
+              "repetitions": 2,
+              "median": 4,
+              "min": 4,
+              "max": 4
+            },
+            "drainMs": {
+              "repetitions": 2,
+              "median": 1215.062,
+              "min": 1210.349917,
+              "max": 1219.774083
+            }
+          }
+        }
+      },
+      "runnerWorkers": 2,
+      "sweepDecision": {
+        "stop": false,
+        "reasons": []
+      }
+    }
+  ],
+  "results": [
+    {
+      "topology": "t0",
+      "concurrency": 4,
+      "repetition": 1,
+      "runnerWorkers": 2,
+      "pollIntervalMs": 20,
+      "prepopulation": {
+        "count": 0,
+        "durationMs": 0
+      },
+      "url": "http://127.0.0.1:3041",
+      "ping": {
+        "requests": 2000,
+        "errors": 0,
+        "timeouts": 0,
+        "requestsPerSecond": 200,
+        "latencyMs": {
+          "min": 1,
+          "p50": 60,
+          "p75": 146,
+          "p99": 286,
+          "p99_9": 299,
+          "max": 300,
+          "mean": 86.63
+        }
+      },
+      "workflows": {
+        "scheduled": 28,
+        "started": 28,
+        "completed": 28,
+        "failed": 0,
+        "completionsDuringWindow": 24,
+        "completionsPerSecond": 2.4,
+        "stepsDuringWindow": 1200,
+        "stepsPerSecond": 120,
+        "runtimeReadErrors": 0,
+        "runtimeMs": {
+          "count": 28,
+          "min": 1517,
+          "p50": 1579,
+          "p75": 1628,
+          "p99": 1715,
+          "max": 1715,
+          "mean": 1597.3214285714287
+        },
+        "requestRoundTripMs": {
+          "count": 28,
+          "min": 1519.3420000000006,
+          "p50": 1581.4851669999998,
+          "p75": 1633.3407499999994,
+          "p99": 1727.398709,
+          "max": 1727.398709,
+          "mean": 1600.9449702857141
+        },
+        "returnValueObservationMs": {
+          "count": 28,
+          "min": 1517,
+          "p50": 1579,
+          "p75": 1628,
+          "p99": 1715,
+          "max": 1715,
+          "mean": 1597.3214285714287
+        },
+        "errors": []
+      },
+      "load": {
+        "launchLagMs": {
+          "count": 4,
+          "min": 0.5040830000000369,
+          "p50": 1.2872079999999642,
+          "p75": 1.771541999999954,
+          "p99": 2.1819580000001224,
+          "max": 2.1819580000001224,
+          "mean": 1.4361977500000194
+        },
+        "inFlightSamples": [
+          {
+            "elapsedMs": 10.562542000000121,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 260.91999999999985,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 511.6105,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 761.7432919999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1011.6141249999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1262.201042,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1512.742833,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1762.8380829999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2012.7869170000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2262.939125,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2513.5508330000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2763.9750000000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3014.8537080000006,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3265.684292,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3515.976458,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3766.040833,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4016.39275,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4267.190125,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4518.323333,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4768.525292,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5018.868542,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5269.9175000000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5521.154708,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5772.236583,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6023.606875,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6273.2672919999995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6524.657167,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6774.729833,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7024.2735,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7274.8995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7526.771750000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7777.600375000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8027.056750000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8276.824625,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8527.806999999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8777.941583,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9029.293916999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9280.637499999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9530.427624999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9779.986541999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9999.055583,
+            "inFlight": 4
+          }
+        ],
+        "endBacklog": 4,
+        "backlogSlopePerSecond": 0,
+        "drainMs": 1219.7740830000002
+      },
+      "platformaticWorld": {
+        "appId": "w1-t0-19503-1790263140093",
+        "serviceUrl": "http://127.0.0.1:3050",
+        "timingSource": "application request-to-return-value duration"
+      }
+    },
+    {
+      "topology": "t0",
+      "concurrency": 4,
+      "repetition": 2,
+      "runnerWorkers": 2,
+      "pollIntervalMs": 20,
+      "prepopulation": {
+        "count": 0,
+        "durationMs": 0
+      },
+      "url": "http://127.0.0.1:3041",
+      "ping": {
+        "requests": 2000,
+        "errors": 0,
+        "timeouts": 0,
+        "requestsPerSecond": 200,
+        "latencyMs": {
+          "min": 1,
+          "p50": 80,
+          "p75": 169,
+          "p99": 366,
+          "p99_9": 381,
+          "max": 382,
+          "mean": 106.14
+        }
+      },
+      "workflows": {
+        "scheduled": 28,
+        "started": 28,
+        "completed": 28,
+        "failed": 0,
+        "completionsDuringWindow": 24,
+        "completionsPerSecond": 2.4,
+        "stepsDuringWindow": 1200,
+        "stepsPerSecond": 120,
+        "runtimeReadErrors": 0,
+        "runtimeMs": {
+          "count": 28,
+          "min": 1461,
+          "p50": 1584,
+          "p75": 1605,
+          "p99": 1781,
+          "max": 1781,
+          "mean": 1597.392857142857
+        },
+        "requestRoundTripMs": {
+          "count": 28,
+          "min": 1463.8125,
+          "p50": 1586.6450409999998,
+          "p75": 1606.565333999999,
+          "p99": 1791.0566659999986,
+          "max": 1791.0566659999986,
+          "mean": 1599.9760252142855
+        },
+        "returnValueObservationMs": {
+          "count": 28,
+          "min": 1461,
+          "p50": 1584,
+          "p75": 1605,
+          "p99": 1781,
+          "max": 1781,
+          "mean": 1597.392857142857
+        },
+        "errors": []
+      },
+      "load": {
+        "launchLagMs": {
+          "count": 4,
+          "min": 0.18058399999972607,
+          "p50": 0.5521250000001601,
+          "p75": 0.7160839999996824,
+          "p99": 0.9155840000003082,
+          "max": 0.9155840000003082,
+          "mean": 0.5910942499999692
+        },
+        "inFlightSamples": [
+          {
+            "elapsedMs": 5.716833999998926,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 256.0527499999989,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 507.1456249999992,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 756.9163340000014,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1006.5020839999997,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1257.4314589999994,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1507.6119169999984,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1758.5530419999996,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2008.372374999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2259.291459,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2508.647000000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2760.2414590000008,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3010.0730839999997,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3260.5259589999987,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3511.4934170000015,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3762.8232500000013,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4013.6099590000013,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4264.667084000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4515.738958999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4766.869834000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5016.346417000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5267.208542,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5517.368958999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5767.500917000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6018.944833999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6268.357667,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6518.728416999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6768.739417000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7018.874416999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7269.3271669999995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7519.397417,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7770.544417000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8021.359959000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8272.264584,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8522.576583999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8772.774375,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9024.029333999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9274.562958999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9525.501084,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9775.632042000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9998.725459000001,
+            "inFlight": 4
+          }
+        ],
+        "endBacklog": 4,
+        "backlogSlopePerSecond": 0,
+        "drainMs": 1210.3499169999996
+      },
+      "platformaticWorld": {
+        "appId": "w1-t0-19503-1790263154243",
+        "serviceUrl": "http://127.0.0.1:3050",
+        "timingSource": "application request-to-return-value duration"
+      }
+    }
+  ]
+}

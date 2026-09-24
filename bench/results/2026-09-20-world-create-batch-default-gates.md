@@ -1,7 +1,7 @@
 # Platformatic World `events.createBatch` default-readiness report
 
 Date: 2026-09-20  
-Decision: **Default-ready locally; no push or PR opened**
+Decision: **Default-ready for matched World/SDK versions; independent rollout remains gated**
 
 Rebase record (2026-09-23): the route branch was cleanly rebased onto World
 `origin/main` `7b9629822` and now ends at `ef76a22e`; all four branch commits
@@ -107,4 +107,4 @@ The first low-load control World-service link above is intentionally a represent
 
 ## Decision
 
-**Default-ready for matched World/SDK versions.** The evidence supports the optimization and existing-workflow parity. The explicit capability handshake is still required before calling the rollout safe for independently versioned client and service deployments. No push or GitHub PR has been performed.
+**Default-ready for matched World/SDK versions.** The evidence supports the optimization and existing-workflow parity. The explicit capability handshake is still required before calling the rollout safe for independently versioned client and service deployments.
