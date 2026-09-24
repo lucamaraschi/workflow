@@ -30,7 +30,7 @@ included for independent inspection.
 PR bodies must use absolute links pinned to the evidence commit, for example:
 
 ```text
-https://github.com/lucamaraschi/workflowsdk-in-watt/blob/<evidence-sha>/bench/results/EVIDENCE-MANIFEST.md
+https://github.com/lucamaraschi/workflow/blob/<evidence-sha>/bench/results/EVIDENCE-MANIFEST.md
 ```
 
 Do not use workspace-relative `../bench/results/...` links in GitHub PRs.
