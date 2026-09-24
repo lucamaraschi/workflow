@@ -1,0 +1,1436 @@
+{
+  "benchmark": "W1",
+  "timestamp": "2026-09-19T20:59:26.481Z",
+  "system": {
+    "hostname": "zion",
+    "platform": "darwin",
+    "release": "27.0.0",
+    "cpus": 14,
+    "node": "v24.19.0"
+  },
+  "config": {
+    "topology": "t0",
+    "duration": 10,
+    "pingRps": 100,
+    "pingConnections": 20,
+    "workflowRpsExplicit": false,
+    "concurrency": 4,
+    "repetitions": 3,
+    "steps": 50,
+    "payloadBytes": 1024,
+    "workflowMode": "fanout",
+    "prepopulateEvents": 0,
+    "pollIntervalMs": 20,
+    "workflowSdkRoot": "/Users/batman/src/platformatic/workflow-sdk-source-sharding-gates",
+    "platformaticWorldRoot": "/Users/batman/src/platformatic/platformatic-world-latest-control",
+    "worldDatabaseUrl": "postgresql://wf:REDACTED@127.0.0.1:5434/rnsourcegates_20260919h?sslmode=disable",
+    "worldServicePort": 3050,
+    "wattConfig": "watt.json",
+    "wattConfigExplicit": false,
+    "runnerWorkers": 2,
+    "runnerWorkersExplicit": false,
+    "output": "/Users/batman/src/platformatic/workflowsdk-in-watt/bench/results/rn-source-sharding-gates-runtime-control-r3.json",
+    "keepData": false,
+    "pprof": false,
+    "fsProbe": false,
+    "runtimeProbe": true,
+    "sessionCostProbe": false,
+    "databaseProbe": false,
+    "worldProbe": false,
+    "effectivePollIntervalMs": 20
+  },
+  "aggregates": [
+    {
+      "concurrency": 4,
+      "topologies": {
+        "t0": {
+          "repetitions": 3,
+          "ping": {
+            "p50Ms": {
+              "repetitions": 3,
+              "median": 290,
+              "min": 259,
+              "max": 509
+            },
+            "p99Ms": {
+              "repetitions": 3,
+              "median": 1739,
+              "min": 1320,
+              "max": 1747
+            },
+            "p99_9Ms": {
+              "repetitions": 3,
+              "median": 1780,
+              "min": 1368,
+              "max": 1803
+            }
+          },
+          "workflows": {
+            "completionsPerSecond": {
+              "repetitions": 3,
+              "median": 0.8,
+              "min": 0.8,
+              "max": 1.2
+            },
+            "stepsPerSecond": {
+              "repetitions": 3,
+              "median": 40,
+              "min": 40,
+              "max": 60
+            },
+            "runtimeP50Ms": {
+              "repetitions": 3,
+              "median": 3533,
+              "min": 2879,
+              "max": 3552
+            },
+            "observationP50Ms": {
+              "repetitions": 3,
+              "median": 3533,
+              "min": 2879,
+              "max": 3552
+            },
+            "requestRoundTripP50Ms": {
+              "repetitions": 3,
+              "median": 3534.092583,
+              "min": 2881.048125,
+              "max": 3554.847667
+            },
+            "requestRoundTripP99Ms": {
+              "repetitions": 3,
+              "median": 3667.095542,
+              "min": 3578.296292,
+              "max": 4572.64625
+            },
+            "requestRoundTripMaxMs": {
+              "repetitions": 3,
+              "median": 3667.095542,
+              "min": 3578.296292,
+              "max": 4572.64625
+            },
+            "failed": 0
+          },
+          "fsProbe": {
+            "fsOpsPerStep": {
+              "repetitions": 0
+            },
+            "fsMsPerStep": {
+              "repetitions": 0
+            }
+          },
+          "load": {
+            "launchLagP99Ms": {
+              "repetitions": 3,
+              "median": 2.559375,
+              "min": 1.461333,
+              "max": 3.719875
+            },
+            "backlogSlopePerSecond": {
+              "repetitions": 3,
+              "median": 0,
+              "min": 0,
+              "max": 0
+            },
+            "endBacklog": {
+              "repetitions": 3,
+              "median": 4,
+              "min": 4,
+              "max": 4
+            },
+            "drainMs": {
+              "repetitions": 3,
+              "median": 576.351291,
+              "min": 525.082625,
+              "max": 1914.111833
+            }
+          }
+        }
+      },
+      "runnerWorkers": 2,
+      "sweepDecision": {
+        "stop": false,
+        "reasons": []
+      }
+    }
+  ],
+  "results": [
+    {
+      "topology": "t0",
+      "concurrency": 4,
+      "repetition": 1,
+      "runnerWorkers": 2,
+      "pollIntervalMs": 20,
+      "prepopulation": {
+        "count": 0,
+        "durationMs": 0
+      },
+      "url": "http://127.0.0.1:3041",
+      "ping": {
+        "requests": 660,
+        "errors": 0,
+        "timeouts": 0,
+        "requestsPerSecond": 66,
+        "latencyMs": {
+          "min": 1,
+          "p50": 509,
+          "p75": 1015,
+          "p99": 1739,
+          "p99_9": 1803,
+          "max": 1813,
+          "mean": 610.54
+        }
+      },
+      "workflows": {
+        "scheduled": 12,
+        "started": 12,
+        "completed": 12,
+        "failed": 0,
+        "completionsDuringWindow": 8,
+        "completionsPerSecond": 0.8,
+        "stepsDuringWindow": 400,
+        "stepsPerSecond": 40,
+        "runtimeReadErrors": 0,
+        "runtimeMs": {
+          "count": 12,
+          "min": 3386,
+          "p50": 3552,
+          "p75": 3554,
+          "p99": 3565,
+          "max": 3565,
+          "mean": 3499.9166666666665
+        },
+        "requestRoundTripMs": {
+          "count": 12,
+          "min": 3387.3981249999997,
+          "p50": 3554.847667,
+          "p75": 3572.2288329999997,
+          "p99": 3578.2962920000004,
+          "max": 3578.2962920000004,
+          "mean": 3506.056750083333
+        },
+        "returnValueObservationMs": {
+          "count": 12,
+          "min": 3386,
+          "p50": 3552,
+          "p75": 3554,
+          "p99": 3565,
+          "max": 3565,
+          "mean": 3499.9166666666665
+        },
+        "errors": []
+      },
+      "load": {
+        "launchLagMs": {
+          "count": 4,
+          "min": 0.6307920000003833,
+          "p50": 2.812042000000474,
+          "p75": 3.3567920000000413,
+          "p99": 3.719875000000229,
+          "max": 3.719875000000229,
+          "mean": 2.629875250000282
+        },
+        "inFlightSamples": [
+          {
+            "elapsedMs": 16.0009170000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 265.7113750000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 516.0000000000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 766.2418750000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1015.7299170000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1267.7917500000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1519.9000830000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1771.961917,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2023.6682920000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2276.0095,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2527.61575,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2778.6415830000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3031.1253750000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3283.1529170000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3532.987583,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3782.641625,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4032.9270830000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4283.002708,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4533.1455000000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4785.214292000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5037.2612500000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5289.177917,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5541.26925,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5793.3153330000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6044.386958,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6295.543208000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6547.570708000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6799.366708,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7050.3465,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7300.886375,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7551.038500000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7801.096667,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8052.451375000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8304.512833,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8554.840292,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8806.906875,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9059.0775,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9311.125208,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9563.002708,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9815.051542000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10002.071292,
+            "inFlight": 4
+          }
+        ],
+        "endBacklog": 4,
+        "backlogSlopePerSecond": 0,
+        "drainMs": 525.0826250000009
+      },
+      "runtimeProbe": {
+        "completedRuns": 12,
+        "gc": {
+          "count": 180,
+          "totalMs": 647.157,
+          "maxMs": 18.073,
+          "pausesPerRun": 15,
+          "msPerRun": 53.93
+        },
+        "maxEventLoopDelayMs": 1816.134,
+        "maxEventLoopDelayWorker": "t0-0",
+        "processes": [
+          {
+            "pid": 98008,
+            "labels": [
+              "t0-0"
+            ],
+            "rssPeakBytes": 2240987136,
+            "rssSteadyBytes": 1348272128
+          },
+          {
+            "pid": 98007,
+            "labels": [
+              "t0-world-service-0",
+              "workflow-0"
+            ],
+            "rssPeakBytes": 422871040,
+            "rssSteadyBytes": 418054144
+          }
+        ],
+        "workers": [
+          {
+            "application": "t0",
+            "worker": 0,
+            "threadId": 0,
+            "label": "t0-0",
+            "pid": 98008,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 152,
+              "totalMs": 612.67,
+              "maxMs": 18.073,
+              "byKind": {
+                "minor": {
+                  "count": 140,
+                  "totalMs": 546.159
+                },
+                "incremental": {
+                  "count": 6,
+                  "totalMs": 3.669
+                },
+                "major": {
+                  "count": 6,
+                  "totalMs": 62.842
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 29.32,
+              "p50Ms": 10.174,
+              "p99Ms": 363.069,
+              "maxMs": 1816.134
+            },
+            "rssBytes": {
+              "samples": 52,
+              "min": 203407360,
+              "median": 1348272128,
+              "p90": 2182856704,
+              "peak": 2240987136,
+              "last": 2240987136
+            },
+            "heapUsedBytes": {
+              "samples": 52,
+              "min": 50488608,
+              "median": 971322040,
+              "p90": 1757374312,
+              "peak": 1813083040,
+              "last": 1813083040
+            }
+          },
+          {
+            "application": "t0-world-service",
+            "worker": 0,
+            "threadId": 0,
+            "label": "t0-world-service-0",
+            "pid": 98007,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 2,
+              "totalMs": 1.048,
+              "maxMs": 0.545,
+              "byKind": {
+                "minor": {
+                  "count": 2,
+                  "totalMs": 1.048
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 11.127,
+              "p50Ms": 11.362,
+              "p99Ms": 12.329,
+              "maxMs": 12.689
+            },
+            "rssBytes": {
+              "samples": 109,
+              "min": 291995648,
+              "median": 418054144,
+              "p90": 422559744,
+              "peak": 422871040,
+              "last": 422871040
+            },
+            "heapUsedBytes": {
+              "samples": 109,
+              "min": 34853744,
+              "median": 45896400,
+              "p90": 53969136,
+              "peak": 59798144,
+              "last": 40601312
+            }
+          },
+          {
+            "application": "workflow",
+            "worker": 0,
+            "threadId": 1,
+            "label": "workflow-0",
+            "pid": 98007,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 26,
+              "totalMs": 33.439,
+              "maxMs": 3.615,
+              "byKind": {
+                "minor": {
+                  "count": 12,
+                  "totalMs": 17.935
+                },
+                "incremental": {
+                  "count": 7,
+                  "totalMs": 1.09
+                },
+                "major": {
+                  "count": 7,
+                  "totalMs": 14.414
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 11.113,
+              "p50Ms": 11.33,
+              "p99Ms": 12.567,
+              "maxMs": 13.009
+            },
+            "rssBytes": {
+              "samples": 111,
+              "min": 291831808,
+              "median": 418054144,
+              "p90": 422559744,
+              "peak": 422871040,
+              "last": 422871040
+            },
+            "heapUsedBytes": {
+              "samples": 111,
+              "min": 47621384,
+              "median": 69874944,
+              "p90": 99465440,
+              "peak": 101867064,
+              "last": 88997904
+            }
+          }
+        ]
+      },
+      "platformaticWorld": {
+        "appId": "w1-t0-98006-1789851566484",
+        "serviceUrl": "http://127.0.0.1:3050",
+        "timingSource": "application request-to-return-value duration"
+      }
+    },
+    {
+      "topology": "t0",
+      "concurrency": 4,
+      "repetition": 2,
+      "runnerWorkers": 2,
+      "pollIntervalMs": 20,
+      "prepopulation": {
+        "count": 0,
+        "durationMs": 0
+      },
+      "url": "http://127.0.0.1:3041",
+      "ping": {
+        "requests": 800,
+        "errors": 0,
+        "timeouts": 0,
+        "requestsPerSecond": 80,
+        "latencyMs": {
+          "min": 1,
+          "p50": 290,
+          "p75": 603,
+          "p99": 1320,
+          "p99_9": 1368,
+          "max": 1373,
+          "mean": 402.9
+        }
+      },
+      "workflows": {
+        "scheduled": 12,
+        "started": 12,
+        "completed": 12,
+        "failed": 0,
+        "completionsDuringWindow": 8,
+        "completionsPerSecond": 0.8,
+        "stepsDuringWindow": 400,
+        "stepsPerSecond": 40,
+        "runtimeReadErrors": 0,
+        "runtimeMs": {
+          "count": 12,
+          "min": 3351,
+          "p50": 3533,
+          "p75": 3656,
+          "p99": 3660,
+          "max": 3660,
+          "mean": 3519.5833333333335
+        },
+        "requestRoundTripMs": {
+          "count": 12,
+          "min": 3351.6088339999988,
+          "p50": 3534.0925830000015,
+          "p75": 3666.2465409999986,
+          "p99": 3667.095541999999,
+          "max": 3667.095541999999,
+          "mean": 3522.982447916666
+        },
+        "returnValueObservationMs": {
+          "count": 12,
+          "min": 3351,
+          "p50": 3533,
+          "p75": 3656,
+          "p99": 3660,
+          "max": 3660,
+          "mean": 3519.5833333333335
+        },
+        "errors": []
+      },
+      "load": {
+        "launchLagMs": {
+          "count": 4,
+          "min": 0.6702910000003612,
+          "p50": 1.132000000001426,
+          "p75": 1.3578330000000278,
+          "p99": 1.4613330000011047,
+          "max": 1.4613330000011047,
+          "mean": 1.15536425000073
+        },
+        "inFlightSamples": [
+          {
+            "elapsedMs": 0.5990000000001601,
+            "inFlight": 0
+          },
+          {
+            "elapsedMs": 250.46754099999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 502.00695799999994,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 751.5375000000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1001.7208330000012,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1253.5547500000011,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1504.0753750000022,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1756.115749999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2007.2907910000013,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2259.776749999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2510.684665999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2760.949791000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3012.2053749999995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3264.3325000000023,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3516.8900410000006,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3767.5327909999996,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4017.9752080000017,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4268.0414580000015,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4517.157165999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4769.214333000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5020.454625,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5271.660207999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5523.750791,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5774.4662499999995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6025.967791000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6278.021791000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6529.218750000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6780.965915999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7030.573875,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7282.765165999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7532.613665999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7782.907458,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8034.0154999999995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8286.068416,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8538.173208000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8790.293500000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9042.584832999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9293.701541,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9545.782083,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9797.272208,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10000.101250000002,
+            "inFlight": 4
+          }
+        ],
+        "endBacklog": 4,
+        "backlogSlopePerSecond": 0,
+        "drainMs": 576.351290999999
+      },
+      "runtimeProbe": {
+        "completedRuns": 12,
+        "gc": {
+          "count": 183,
+          "totalMs": 660.851,
+          "maxMs": 18.902,
+          "pausesPerRun": 15.25,
+          "msPerRun": 55.071
+        },
+        "maxEventLoopDelayMs": 1598.03,
+        "maxEventLoopDelayWorker": "t0-0",
+        "processes": [
+          {
+            "pid": 98024,
+            "labels": [
+              "t0-0"
+            ],
+            "rssPeakBytes": 2386788352,
+            "rssSteadyBytes": 1370013696
+          },
+          {
+            "pid": 98022,
+            "labels": [
+              "t0-world-service-0",
+              "workflow-0"
+            ],
+            "rssPeakBytes": 417742848,
+            "rssSteadyBytes": 411107328
+          }
+        ],
+        "workers": [
+          {
+            "application": "t0",
+            "worker": 0,
+            "threadId": 0,
+            "label": "t0-0",
+            "pid": 98024,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 153,
+              "totalMs": 629.53,
+              "maxMs": 18.902,
+              "byKind": {
+                "minor": {
+                  "count": 141,
+                  "totalMs": 551.131
+                },
+                "incremental": {
+                  "count": 6,
+                  "totalMs": 4.834
+                },
+                "major": {
+                  "count": 6,
+                  "totalMs": 73.565
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 30.085,
+              "p50Ms": 10.191,
+              "p99Ms": 476.578,
+              "maxMs": 1598.03
+            },
+            "rssBytes": {
+              "samples": 50,
+              "min": 207716352,
+              "median": 1370013696,
+              "p90": 2366160896,
+              "peak": 2386788352,
+              "last": 2343141376
+            },
+            "heapUsedBytes": {
+              "samples": 50,
+              "min": 51160848,
+              "median": 923180912,
+              "p90": 1920933224,
+              "peak": 1946368120,
+              "last": 984008936
+            }
+          },
+          {
+            "application": "t0-world-service",
+            "worker": 0,
+            "threadId": 0,
+            "label": "t0-world-service-0",
+            "pid": 98022,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 2,
+              "totalMs": 0.982,
+              "maxMs": 0.569,
+              "byKind": {
+                "minor": {
+                  "count": 2,
+                  "totalMs": 0.982
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 11.116,
+              "p50Ms": 11.33,
+              "p99Ms": 12.19,
+              "maxMs": 14.131
+            },
+            "rssBytes": {
+              "samples": 112,
+              "min": 291684352,
+              "median": 411107328,
+              "p90": 414466048,
+              "peak": 417742848,
+              "last": 417742848
+            },
+            "heapUsedBytes": {
+              "samples": 112,
+              "min": 34015696,
+              "median": 45219088,
+              "p90": 53276920,
+              "peak": 58768544,
+              "last": 39987200
+            }
+          },
+          {
+            "application": "workflow",
+            "worker": 0,
+            "threadId": 1,
+            "label": "workflow-0",
+            "pid": 98022,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 28,
+              "totalMs": 30.339,
+              "maxMs": 2.551,
+              "byKind": {
+                "minor": {
+                  "count": 10,
+                  "totalMs": 13.653
+                },
+                "incremental": {
+                  "count": 9,
+                  "totalMs": 1.386
+                },
+                "major": {
+                  "count": 9,
+                  "totalMs": 15.301
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 11.121,
+              "p50Ms": 11.354,
+              "p99Ms": 12.337,
+              "maxMs": 13.345
+            },
+            "rssBytes": {
+              "samples": 112,
+              "min": 291536896,
+              "median": 411107328,
+              "p90": 414466048,
+              "peak": 417726464,
+              "last": 417726464
+            },
+            "heapUsedBytes": {
+              "samples": 112,
+              "min": 40679608,
+              "median": 85836704,
+              "p90": 100601104,
+              "peak": 101930744,
+              "last": 57119344
+            }
+          }
+        ]
+      },
+      "platformaticWorld": {
+        "appId": "w1-t0-98006-1789851580383",
+        "serviceUrl": "http://127.0.0.1:3050",
+        "timingSource": "application request-to-return-value duration"
+      }
+    },
+    {
+      "topology": "t0",
+      "concurrency": 4,
+      "repetition": 3,
+      "runnerWorkers": 2,
+      "pollIntervalMs": 20,
+      "prepopulation": {
+        "count": 0,
+        "durationMs": 0
+      },
+      "url": "http://127.0.0.1:3041",
+      "ping": {
+        "requests": 860,
+        "errors": 0,
+        "timeouts": 0,
+        "requestsPerSecond": 86,
+        "latencyMs": {
+          "min": 1,
+          "p50": 259,
+          "p75": 863,
+          "p99": 1747,
+          "p99_9": 1780,
+          "max": 1784,
+          "mean": 505.78
+        }
+      },
+      "workflows": {
+        "scheduled": 16,
+        "started": 16,
+        "completed": 16,
+        "failed": 0,
+        "completionsDuringWindow": 12,
+        "completionsPerSecond": 1.2,
+        "stepsDuringWindow": 600,
+        "stepsPerSecond": 60,
+        "runtimeReadErrors": 0,
+        "runtimeMs": {
+          "count": 16,
+          "min": 1379,
+          "p50": 2879,
+          "p75": 3572,
+          "p99": 4571,
+          "max": 4571,
+          "mean": 2885.8125
+        },
+        "requestRoundTripMs": {
+          "count": 16,
+          "min": 1379.5508330000011,
+          "p50": 2881.048125000001,
+          "p75": 3580.394124999999,
+          "p99": 4572.646249999998,
+          "max": 4572.646249999998,
+          "mean": 2889.1276275
+        },
+        "returnValueObservationMs": {
+          "count": 16,
+          "min": 1379,
+          "p50": 2879,
+          "p75": 3572,
+          "p99": 4571,
+          "max": 4571,
+          "mean": 2885.8125
+        },
+        "errors": []
+      },
+      "load": {
+        "launchLagMs": {
+          "count": 4,
+          "min": 0,
+          "p50": 0,
+          "p75": 2.302916999997251,
+          "p99": 2.5593749999970896,
+          "max": 2.5593749999970896,
+          "mean": 1.2155729999985851
+        },
+        "inFlightSamples": [
+          {
+            "elapsedMs": 8.282624999999825,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 259.0690829999985,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 509.6452919999974,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 759.6942920000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1010.5147499999985,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1262.566999999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1514.6629579999972,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1766.7177499999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2018.114416999997,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2270.4164169999967,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2522.5802079999994,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2774.6275419999984,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3027.0973749999976,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3276.9162079999987,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3526.825417,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3776.7077080000017,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4026.550833000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4278.616416999997,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4530.7227920000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4782.783749999995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5033.487000000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5283.667874999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5535.772624999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5787.823875000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6038.922417000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6288.471791999997,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6539.364667000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6790.800833000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7043.017791999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7294.523957999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7547.076042000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7799.138999999996,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8049.550083000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8301.499958,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8553.627999999997,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8804.685249999995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9056.927167000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9307.173208,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9557.849208,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9809.912624999997,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10000.981249999997,
+            "inFlight": 4
+          }
+        ],
+        "endBacklog": 4,
+        "backlogSlopePerSecond": 0,
+        "drainMs": 1914.1118329999954
+      },
+      "runtimeProbe": {
+        "completedRuns": 16,
+        "gc": {
+          "count": 204,
+          "totalMs": 721.538,
+          "maxMs": 21.962,
+          "pausesPerRun": 12.75,
+          "msPerRun": 45.096
+        },
+        "maxEventLoopDelayMs": 1773.142,
+        "maxEventLoopDelayWorker": "t0-0",
+        "processes": [
+          {
+            "pid": 98032,
+            "labels": [
+              "t0-0"
+            ],
+            "rssPeakBytes": 2603073536,
+            "rssSteadyBytes": 1344684032
+          },
+          {
+            "pid": 98029,
+            "labels": [
+              "t0-world-service-0",
+              "workflow-0"
+            ],
+            "rssPeakBytes": 416579584,
+            "rssSteadyBytes": 413433856
+          }
+        ],
+        "workers": [
+          {
+            "application": "t0",
+            "worker": 0,
+            "threadId": 0,
+            "label": "t0-0",
+            "pid": 98032,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 170,
+              "totalMs": 687.576,
+              "maxMs": 21.962,
+              "byKind": {
+                "minor": {
+                  "count": 158,
+                  "totalMs": 622.012
+                },
+                "incremental": {
+                  "count": 6,
+                  "totalMs": 4.111
+                },
+                "major": {
+                  "count": 6,
+                  "totalMs": 61.453
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 28.188,
+              "p50Ms": 10.232,
+              "p99Ms": 454.296,
+              "maxMs": 1773.142
+            },
+            "rssBytes": {
+              "samples": 66,
+              "min": 204521472,
+              "median": 1344684032,
+              "p90": 2337882112,
+              "peak": 2603073536,
+              "last": 2603073536
+            },
+            "heapUsedBytes": {
+              "samples": 66,
+              "min": 50439688,
+              "median": 871657280,
+              "p90": 1887789416,
+              "peak": 2147445064,
+              "last": 2142804192
+            }
+          },
+          {
+            "application": "t0-world-service",
+            "worker": 0,
+            "threadId": 0,
+            "label": "t0-world-service-0",
+            "pid": 98029,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 2,
+              "totalMs": 0.973,
+              "maxMs": 0.518,
+              "byKind": {
+                "minor": {
+                  "count": 2,
+                  "totalMs": 0.973
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 11.023,
+              "p50Ms": 11.084,
+              "p99Ms": 12.28,
+              "maxMs": 12.64
+            },
+            "rssBytes": {
+              "samples": 124,
+              "min": 288768000,
+              "median": 413433856,
+              "p90": 415449088,
+              "peak": 416579584,
+              "last": 416579584
+            },
+            "heapUsedBytes": {
+              "samples": 124,
+              "min": 34762824,
+              "median": 48166848,
+              "p90": 55591160,
+              "peak": 59353856,
+              "last": 54712080
+            }
+          },
+          {
+            "application": "workflow",
+            "worker": 0,
+            "threadId": 1,
+            "label": "workflow-0",
+            "pid": 98029,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 32,
+              "totalMs": 32.989,
+              "maxMs": 3.238,
+              "byKind": {
+                "minor": {
+                  "count": 16,
+                  "totalMs": 18.141
+                },
+                "incremental": {
+                  "count": 8,
+                  "totalMs": 1.203
+                },
+                "major": {
+                  "count": 8,
+                  "totalMs": 13.646
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 11.004,
+              "p50Ms": 11.051,
+              "p99Ms": 12.255,
+              "maxMs": 12.706
+            },
+            "rssBytes": {
+              "samples": 124,
+              "min": 288817152,
+              "median": 413433856,
+              "p90": 415449088,
+              "peak": 416579584,
+              "last": 416579584
+            },
+            "heapUsedBytes": {
+              "samples": 124,
+              "min": 40465848,
+              "median": 77221704,
+              "p90": 97386968,
+              "peak": 100061024,
+              "last": 73381680
+            }
+          }
+        ]
+      },
+      "platformaticWorld": {
+        "appId": "w1-t0-98006-1789851594047",
+        "serviceUrl": "http://127.0.0.1:3050",
+        "timingSource": "application request-to-return-value duration"
+      }
+    }
+  ]
+}

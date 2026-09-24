@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-20T01:07:55Z",
+  "node": "v24.19.0",
+  "image": "node:24-bookworm",
+  "candidateRoot": "/Users/batman/src/platformatic/workflow-sdk-serialization-pr",
+  "candidateCommit": "dfe3ec853",
+  "build": "pass",
+  "testCommand": "pnpm --filter @workflow/core test",
+  "test": "pass",
+  "testFilesPassed": 122,
+  "testFilesSkipped": 1,
+  "testsPassed": 2586,
+  "expectedFailures": 3,
+  "testsSkipped": 1,
+  "note": "The test-only writable-stream delivery-order observation fix records chronological write/writeMulti delivery and removes the Node 24/Linux false failure; runtime SDK code is unchanged by this commit."
+}

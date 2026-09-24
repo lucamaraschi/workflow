@@ -1,0 +1,2150 @@
+{
+  "benchmark": "W1",
+  "timestamp": "2026-09-20T23:55:35.235Z",
+  "system": {
+    "hostname": "zion",
+    "platform": "darwin",
+    "release": "27.0.0",
+    "cpus": 14,
+    "node": "v24.19.0"
+  },
+  "config": {
+    "topology": "t0",
+    "duration": 15,
+    "pingRps": 200,
+    "pingConnections": 20,
+    "workflowRpsExplicit": false,
+    "concurrency": 4,
+    "repetitions": 2,
+    "steps": 50,
+    "payloadBytes": 1024,
+    "workflowMode": "fanout",
+    "stepDelayMs": 25,
+    "slowEvery": 1,
+    "prepopulateEvents": 0,
+    "pollIntervalMs": 20,
+    "workflowSdkRoot": "/Users/batman/src/platformatic/workflow-sdk-latest-control",
+    "platformaticWorldRoot": "/Users/batman/src/platformatic/platformatic-world-latest-control",
+    "worldDatabaseUrl": "postgresql://wf:REDACTED@127.0.0.1:5434/p7_exp16_20260920",
+    "worldServicePort": 3157,
+    "wattConfig": "watt.json",
+    "wattConfigExplicit": false,
+    "runnerWorkers": 2,
+    "runnerWorkersExplicit": false,
+    "output": "/Users/batman/src/platformatic/workflowsdk-in-watt/bench/results/rn-inline-limit-p7-expensive16-20260920.json",
+    "keepData": false,
+    "pprof": false,
+    "fsProbe": false,
+    "runtimeProbe": true,
+    "sessionCostProbe": false,
+    "databaseProbe": true,
+    "worldProbe": true,
+    "effectivePollIntervalMs": 20
+  },
+  "aggregates": [
+    {
+      "concurrency": 4,
+      "topologies": {
+        "t0": {
+          "repetitions": 2,
+          "ping": {
+            "p50Ms": {
+              "repetitions": 2,
+              "median": 226.5,
+              "min": 218,
+              "max": 235
+            },
+            "p99Ms": {
+              "repetitions": 2,
+              "median": 961,
+              "min": 915,
+              "max": 1007
+            },
+            "p99_9Ms": {
+              "repetitions": 2,
+              "median": 1031.5,
+              "min": 981,
+              "max": 1082
+            }
+          },
+          "workflows": {
+            "completionsPerSecond": {
+              "repetitions": 2,
+              "median": 1.2,
+              "min": 1.066667,
+              "max": 1.333333
+            },
+            "stepsPerSecond": {
+              "repetitions": 2,
+              "median": 60,
+              "min": 53.333333,
+              "max": 66.666667
+            },
+            "runtimeP50Ms": {
+              "repetitions": 2,
+              "median": 2884.5,
+              "min": 2830,
+              "max": 2939
+            },
+            "observationP50Ms": {
+              "repetitions": 2,
+              "median": 2884.5,
+              "min": 2830,
+              "max": 2939
+            },
+            "requestRoundTripP50Ms": {
+              "repetitions": 2,
+              "median": 2886.618208,
+              "min": 2831.993458,
+              "max": 2941.242958
+            },
+            "requestRoundTripP99Ms": {
+              "repetitions": 2,
+              "median": 3501.061125,
+              "min": 3411.392875,
+              "max": 3590.729375
+            },
+            "requestRoundTripMaxMs": {
+              "repetitions": 2,
+              "median": 3501.061125,
+              "min": 3411.392875,
+              "max": 3590.729375
+            },
+            "failed": 0
+          },
+          "fsProbe": {
+            "fsOpsPerStep": {
+              "repetitions": 0
+            },
+            "fsMsPerStep": {
+              "repetitions": 0
+            }
+          },
+          "load": {
+            "launchLagP99Ms": {
+              "repetitions": 2,
+              "median": 2.18225,
+              "min": 1.899542,
+              "max": 2.464958
+            },
+            "backlogSlopePerSecond": {
+              "repetitions": 2,
+              "median": 0,
+              "min": 0,
+              "max": 0
+            },
+            "endBacklog": {
+              "repetitions": 2,
+              "median": 4,
+              "min": 4,
+              "max": 4
+            },
+            "drainMs": {
+              "repetitions": 2,
+              "median": 1482.73525,
+              "min": 35.608292,
+              "max": 2929.862208
+            }
+          }
+        }
+      },
+      "runnerWorkers": 2,
+      "sweepDecision": {
+        "stop": false,
+        "reasons": []
+      }
+    }
+  ],
+  "results": [
+    {
+      "topology": "t0",
+      "concurrency": 4,
+      "repetition": 1,
+      "runnerWorkers": 2,
+      "pollIntervalMs": 20,
+      "prepopulation": {
+        "count": 0,
+        "durationMs": 0
+      },
+      "url": "http://127.0.0.1:3041",
+      "ping": {
+        "requests": 2445,
+        "errors": 0,
+        "timeouts": 0,
+        "requestsPerSecond": 163,
+        "latencyMs": {
+          "min": 1,
+          "p50": 218,
+          "p75": 384,
+          "p99": 915,
+          "p99_9": 981,
+          "max": 988,
+          "mean": 257.29
+        }
+      },
+      "workflows": {
+        "scheduled": 24,
+        "started": 24,
+        "completed": 24,
+        "failed": 0,
+        "completionsDuringWindow": 20,
+        "completionsPerSecond": 1.3333333333333333,
+        "stepsDuringWindow": 1000,
+        "stepsPerSecond": 66.66666666666667,
+        "runtimeReadErrors": 0,
+        "runtimeMs": {
+          "count": 24,
+          "min": 2775,
+          "p50": 2830,
+          "p75": 3009,
+          "p99": 3589,
+          "max": 3589,
+          "mean": 2982.875
+        },
+        "requestRoundTripMs": {
+          "count": 24,
+          "min": 2777.4918749999997,
+          "p50": 2831.993458000001,
+          "p75": 3012.0730000000003,
+          "p99": 3590.729374999999,
+          "max": 3590.729374999999,
+          "mean": 2987.4047257083334
+        },
+        "returnValueObservationMs": {
+          "count": 24,
+          "min": 2775,
+          "p50": 2830,
+          "p75": 3009,
+          "p99": 3589,
+          "max": 3589,
+          "mean": 2982.875
+        },
+        "errors": []
+      },
+      "load": {
+        "launchLagMs": {
+          "count": 4,
+          "min": 0.35833299999967494,
+          "p50": 1.3692079999996167,
+          "p75": 1.93029099999967,
+          "p99": 2.4649579999995694,
+          "max": 2.4649579999995694,
+          "mean": 1.5306974999996328
+        },
+        "inFlightSamples": [
+          {
+            "elapsedMs": 15.358082999999624,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 265.75783299999966,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 516.7616249999996,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 767.2094999999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1017.5676659999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1267.5445,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1519.6776249999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1771.8164579999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2021.1217909999996,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2273.0022499999995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2525.828791,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2777.0958329999994,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3027.4894159999994,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3278.944791,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3528.8791249999995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3780.9420409999993,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4032.7581659999996,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4282.915083,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4534.0845,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4785.518625,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5037.186541,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5289.029375,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5539.113375,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5790.700833,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6040.878125,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6292.036415999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6543.742708,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6794.334666000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7046.207666,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7298.265707999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7550.376208,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7802.278541,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8054.437040999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8306.496791,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8558.497291,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8809.217290999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9060.430583,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9312.494290999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9564.639125,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9816.720458,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10066.967,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10318.022458,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10570.26175,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10820.896708,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11072.999541,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11325.07675,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11576.032041,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11826.315041,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12077.243958,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12328.175041,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12578.339333,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12829.527625,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13081.501541,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13332.276749999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13584.396416,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13836.883458,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14087.583583,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14337.503291,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14588.036874999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14838.238416,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14999.553541000001,
+            "inFlight": 4
+          }
+        ],
+        "endBacklog": 4,
+        "backlogSlopePerSecond": 0,
+        "drainMs": 2929.8622079999986
+      },
+      "runtimeProbe": {
+        "completedRuns": 24,
+        "gc": {
+          "count": 249,
+          "totalMs": 1623.788,
+          "maxMs": 404.429,
+          "pausesPerRun": 10.375,
+          "msPerRun": 67.658
+        },
+        "maxEventLoopDelayMs": 1769.996,
+        "maxEventLoopDelayWorker": "t0-0",
+        "processes": [
+          {
+            "pid": 93679,
+            "labels": [
+              "t0-0"
+            ],
+            "rssPeakBytes": 4019945472,
+            "rssSteadyBytes": 2167750656
+          },
+          {
+            "pid": 93678,
+            "labels": [
+              "t0-world-service-0",
+              "workflow-0"
+            ],
+            "rssPeakBytes": 430505984,
+            "rssSteadyBytes": 429064192
+          }
+        ],
+        "workers": [
+          {
+            "application": "t0",
+            "worker": 0,
+            "threadId": 0,
+            "label": "t0-0",
+            "pid": 93679,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 206,
+              "totalMs": 1567.461,
+              "maxMs": 404.429,
+              "byKind": {
+                "minor": {
+                  "count": 194,
+                  "totalMs": 1063.18
+                },
+                "incremental": {
+                  "count": 6,
+                  "totalMs": 10.631
+                },
+                "major": {
+                  "count": 6,
+                  "totalMs": 493.65
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 29.853,
+              "p50Ms": 10.158,
+              "p99Ms": 547.357,
+              "maxMs": 1769.996
+            },
+            "rssBytes": {
+              "samples": 87,
+              "min": 201588736,
+              "median": 2167750656,
+              "p90": 3679485952,
+              "peak": 4019945472,
+              "last": 4019945472
+            },
+            "heapUsedBytes": {
+              "samples": 87,
+              "min": 51735984,
+              "median": 1729912216,
+              "p90": 3068105432,
+              "peak": 3417554752,
+              "last": 3417554752
+            }
+          },
+          {
+            "application": "t0-world-service",
+            "worker": 0,
+            "threadId": 0,
+            "label": "t0-world-service-0",
+            "pid": 93678,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 3,
+              "totalMs": 1.184,
+              "maxMs": 0.57,
+              "byKind": {
+                "minor": {
+                  "count": 3,
+                  "totalMs": 1.184
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 11.076,
+              "p50Ms": 11.174,
+              "p99Ms": 12.337,
+              "maxMs": 12.747
+            },
+            "rssBytes": {
+              "samples": 183,
+              "min": 289472512,
+              "median": 429064192,
+              "p90": 430473216,
+              "peak": 430505984,
+              "last": 430505984
+            },
+            "heapUsedBytes": {
+              "samples": 183,
+              "min": 35267152,
+              "median": 44581712,
+              "p90": 56222736,
+              "peak": 61244368,
+              "last": 44628512
+            }
+          },
+          {
+            "application": "workflow",
+            "worker": 0,
+            "threadId": 1,
+            "label": "workflow-0",
+            "pid": 93678,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 40,
+              "totalMs": 55.143,
+              "maxMs": 2.972,
+              "byKind": {
+                "minor": {
+                  "count": 24,
+                  "totalMs": 40.767
+                },
+                "incremental": {
+                  "count": 8,
+                  "totalMs": 1.278
+                },
+                "major": {
+                  "count": 8,
+                  "totalMs": 13.098
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 11.044,
+              "p50Ms": 11.158,
+              "p99Ms": 12.386,
+              "maxMs": 13.009
+            },
+            "rssBytes": {
+              "samples": 184,
+              "min": 289325056,
+              "median": 429064192,
+              "p90": 430473216,
+              "peak": 430505984,
+              "last": 430505984
+            },
+            "heapUsedBytes": {
+              "samples": 184,
+              "min": 38495184,
+              "median": 83430016,
+              "p90": 93276368,
+              "peak": 106520160,
+              "last": 47426728
+            }
+          }
+        ]
+      },
+      "worldProbe": {
+        "completedSteps": 1200,
+        "http": {
+          "total": 11020,
+          "perStep": 9.183333,
+          "operations": [
+            {
+              "key": "POST /api/v1/apps/:appId/runs/:runId/events",
+              "n": 4069,
+              "perStep": 3.390833
+            },
+            {
+              "key": "GET /api/v1/apps/:appId/encryption-key",
+              "n": 2125,
+              "perStep": 1.770833
+            },
+            {
+              "key": "GET /api/v1/apps/:appId/runs/:runId/events?cursor",
+              "n": 1645,
+              "perStep": 1.370833
+            },
+            {
+              "key": "GET /api/v1/apps/:appId/runs/:runId",
+              "n": 1501,
+              "perStep": 1.250833
+            },
+            {
+              "key": "GET /api/v1/apps/:appId/runs/:runId/events?initial",
+              "n": 840,
+              "perStep": 0.7
+            },
+            {
+              "key": "POST /api/v1/apps/:appId/queue",
+              "n": 840,
+              "perStep": 0.7
+            }
+          ]
+        },
+        "sql": {
+          "total": 42224,
+          "perStep": 35.186667,
+          "operations": [
+            {
+              "key": "BEGIN",
+              "n": 4909,
+              "perStep": 4.090833
+            },
+            {
+              "key": "COMMIT",
+              "n": 4909,
+              "perStep": 4.090833
+            },
+            {
+              "key": "SELECT COUNT(*)::int as count FROM workflow_events WHERE application_id = $1 AND run_id = $2",
+              "n": 4045,
+              "perStep": 3.370833
+            },
+            {
+              "key": "INSERT INTO workflow_events (run_id, application_id, event_type, correlation_id, event_data, spec_version) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+              "n": 3365,
+              "perStep": 2.804167
+            },
+            {
+              "key": "SELECT * FROM workflow_steps WHERE id = $1",
+              "n": 3216,
+              "perStep": 2.68
+            },
+            {
+              "key": "SELECT * FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND ($3::bigint IS NULL OR slot > $3) AND ($4::int IS NULL OR id > $4) ORDER BY COALESCE(slot::bigint, id::bigint) ASC LIMIT $5",
+              "n": 2485,
+              "perStep": 2.070833
+            },
+            {
+              "key": "SELECT secret FROM workflow_encryption_keys WHERE application_id = $1",
+              "n": 2125,
+              "perStep": 1.770833
+            },
+            {
+              "key": "SELECT status FROM workflow_deployment_versions WHERE application_id = $1 AND deployment_version = $2",
+              "n": 1680,
+              "perStep": 1.4
+            },
+            {
+              "key": "SELECT * FROM workflow_runs WHERE id = $1 AND application_id = $2",
+              "n": 1501,
+              "perStep": 1.250833
+            },
+            {
+              "key": "SELECT * FROM workflow_steps WHERE run_id = $1 AND correlation_id = $2 AND application_id = $3 FOR UPDATE",
+              "n": 1200,
+              "perStep": 1
+            },
+            {
+              "key": "SELECT id, status FROM workflow_steps WHERE run_id = $1 AND correlation_id = $2 AND application_id = $3 FOR UPDATE",
+              "n": 1200,
+              "perStep": 1
+            },
+            {
+              "key": "UPDATE workflow_steps SET status = 'completed', output = $3, completed_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+              "n": 1200,
+              "perStep": 1
+            },
+            {
+              "key": "SELECT * FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND slot >= $3 AND slot < $4 ORDER BY slot ASC LIMIT $5",
+              "n": 869,
+              "perStep": 0.724167
+            },
+            {
+              "key": "SELECT * FROM workflow_runs WHERE id = $1",
+              "n": 853,
+              "perStep": 0.710833
+            },
+            {
+              "key": "INSERT INTO workflow_queue_messages (idempotency_key, queue_name, run_id, deployment_version, application_id, payload, payload_bytes, payload_encoding, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 'pending') RETURNING id",
+              "n": 840,
+              "perStep": 0.7
+            },
+            {
+              "key": "SELECT pg_notify('deferred_messages', '{}')",
+              "n": 840,
+              "perStep": 0.7
+            },
+            {
+              "key": "SELECT workflow_url, step_url, webhook_url FROM workflow_queue_handlers WHERE application_id = $1 AND deployment_version = $2 ORDER BY last_heartbeat DESC",
+              "n": 840,
+              "perStep": 0.7
+            },
+            {
+              "key": "UPDATE workflow_queue_messages SET status = 'delivered', delivered_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2 AND status = 'pending' AND attempts = $3 RETURNING id",
+              "n": 840,
+              "perStep": 0.7
+            },
+            {
+              "key": "INSERT INTO workflow_steps (id, run_id, application_id, correlation_id, step_name, status, input, spec_version) VALUES ($1, $2, $3, $4, $5, 'pending', $6, $7) ON CONFLICT (run_id, correlation_id, step_name) DO NOTHING RETURNING id",
+              "n": 816,
+              "perStep": 0.68
+            },
+            {
+              "key": "SELECT id FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND event_type = $3 AND correlation_id = $4 LIMIT 1",
+              "n": 816,
+              "perStep": 0.68
+            },
+            {
+              "key": "SELECT id FROM workflow_queue_messages WHERE idempotency_key = $1",
+              "n": 816,
+              "perStep": 0.68
+            },
+            {
+              "key": "UPDATE workflow_steps SET status = 'running', attempt = $3, retry_after = NULL, started_at = COALESCE(started_at, NOW()), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+              "n": 816,
+              "perStep": 0.68
+            },
+            {
+              "key": "SELECT status FROM workflow_runs WHERE id = $1 AND application_id = $2",
+              "n": 805,
+              "perStep": 0.670833
+            },
+            {
+              "key": "INSERT INTO workflow_steps (id, run_id, application_id, correlation_id, step_name, status, input, spec_version, started_at, attempt) VALUES ($1, $2, $3, $4, $5, 'running', $6, $7, NOW(), 1) ON CONFLICT (run_id, correlation_id, step_name) DO NOTHING RETURNING id",
+              "n": 384,
+              "perStep": 0.32
+            },
+            {
+              "key": "UPDATE workflow_hooks SET status = 'disposed', disposed_at = NOW() WHERE run_id = $1 AND application_id = $2 AND status != 'disposed'",
+              "n": 101,
+              "perStep": 0.084167
+            },
+            {
+              "key": "UPDATE workflow_runs SET status = 'completed', output = $3, completed_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+              "n": 101,
+              "perStep": 0.084167
+            },
+            {
+              "key": "UPDATE workflow_waits SET status = 'completed', completed_at = NOW(), updated_at = NOW() WHERE run_id = $1 AND application_id = $2 AND status = 'waiting'",
+              "n": 101,
+              "perStep": 0.084167
+            },
+            {
+              "key": "SELECT * FROM workflow_queue_messages WHERE status = 'failed' AND attempts >= 10 ORDER BY created_at ASC LIMIT 100",
+              "n": 86,
+              "perStep": 0.071667
+            },
+            {
+              "key": "SELECT * FROM workflow_queue_messages WHERE status = 'pending' AND NOT (id = ANY($1::bigint[])) ORDER BY created_at ASC FOR UPDATE SKIP LOCKED LIMIT $2",
+              "n": 86,
+              "perStep": 0.071667
+            },
+            {
+              "key": "SELECT EXTRACT(EPOCH FROM (MIN(next_time) - NOW())) AS secs FROM ( SELECT deliver_at AS next_time FROM workflow_queue_messages WHERE status = 'deferred' AND deliver_at > NOW() UNION ALL SELECT next_retry_at AS next_time FROM workflow_queue_messages WHERE status = 'failed' AND next_retry_at > NOW() AND attempts < 10 ) t",
+              "n": 86,
+              "perStep": 0.071667
+            },
+            {
+              "key": "UPDATE workflow_queue_messages SET status = 'pending', updated_at = NOW() WHERE status = 'deferred' AND deliver_at <= NOW()",
+              "n": 86,
+              "perStep": 0.071667
+            },
+            {
+              "key": "UPDATE workflow_queue_messages SET status = 'pending', updated_at = NOW() WHERE status = 'failed' AND next_retry_at <= NOW() AND attempts < 10",
+              "n": 86,
+              "perStep": 0.071667
+            },
+            {
+              "key": "INSERT INTO workflow_runs (id, application_id, workflow_name, deployment_id, status, input, execution_context, spec_version, attributes) VALUES ($1, $2, $3, $4, 'pending', $5, $6, $7, $8) ON CONFLICT (id) DO NOTHING RETURNING id",
+              "n": 24,
+              "perStep": 0.02
+            },
+            {
+              "key": "SELECT COUNT(*)::int as count FROM workflow_runs WHERE application_id = $1 AND status IN ('pending', 'running')",
+              "n": 24,
+              "perStep": 0.02
+            },
+            {
+              "key": "SELECT id FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND event_type = 'run_started' LIMIT 1",
+              "n": 24,
+              "perStep": 0.02
+            },
+            {
+              "key": "SELECT id FROM workflow_runs WHERE id = $1 AND application_id = $2",
+              "n": 24,
+              "perStep": 0.02
+            },
+            {
+              "key": "UPDATE workflow_runs SET status = 'running', started_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+              "n": 24,
+              "perStep": 0.02
+            },
+            {
+              "key": "SELECT pg_try_advisory_lock($1) as leader",
+              "n": 1,
+              "perStep": 0.000833
+            }
+          ]
+        },
+        "workers": [
+          {
+            "mode": "client",
+            "application": "t0",
+            "worker": 0,
+            "threadId": 0,
+            "pid": 93679,
+            "label": "client-t0-0",
+            "generation": 2,
+            "reason": "freeze",
+            "total": 11020,
+            "operations": [
+              {
+                "key": "http POST /api/v1/apps/:appId/runs/:runId/events",
+                "n": 4069
+              },
+              {
+                "key": "http GET /api/v1/apps/:appId/encryption-key",
+                "n": 2125
+              },
+              {
+                "key": "http GET /api/v1/apps/:appId/runs/:runId/events?cursor",
+                "n": 1645
+              },
+              {
+                "key": "http GET /api/v1/apps/:appId/runs/:runId",
+                "n": 1501
+              },
+              {
+                "key": "http GET /api/v1/apps/:appId/runs/:runId/events?initial",
+                "n": 840
+              },
+              {
+                "key": "http POST /api/v1/apps/:appId/queue",
+                "n": 840
+              }
+            ],
+            "httpBytes": []
+          },
+          {
+            "mode": "service",
+            "application": "t0-world-service",
+            "worker": 0,
+            "threadId": 0,
+            "pid": 93678,
+            "label": "service-t0-world-service-0",
+            "generation": 2,
+            "reason": "freeze",
+            "total": 0,
+            "operations": [],
+            "httpBytes": []
+          },
+          {
+            "mode": "service",
+            "application": "workflow",
+            "worker": 0,
+            "threadId": 1,
+            "pid": 93678,
+            "label": "service-workflow-0",
+            "generation": 2,
+            "reason": "freeze",
+            "total": 42224,
+            "operations": [
+              {
+                "key": "sql BEGIN",
+                "n": 4909
+              },
+              {
+                "key": "sql COMMIT",
+                "n": 4909
+              },
+              {
+                "key": "sql SELECT COUNT(*)::int as count FROM workflow_events WHERE application_id = $1 AND run_id = $2",
+                "n": 4045
+              },
+              {
+                "key": "sql INSERT INTO workflow_events (run_id, application_id, event_type, correlation_id, event_data, spec_version) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+                "n": 3365
+              },
+              {
+                "key": "sql SELECT * FROM workflow_steps WHERE id = $1",
+                "n": 3216
+              },
+              {
+                "key": "sql SELECT * FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND ($3::bigint IS NULL OR slot > $3) AND ($4::int IS NULL OR id > $4) ORDER BY COALESCE(slot::bigint, id::bigint) ASC LIMIT $5",
+                "n": 2485
+              },
+              {
+                "key": "sql SELECT secret FROM workflow_encryption_keys WHERE application_id = $1",
+                "n": 2125
+              },
+              {
+                "key": "sql SELECT status FROM workflow_deployment_versions WHERE application_id = $1 AND deployment_version = $2",
+                "n": 1680
+              },
+              {
+                "key": "sql SELECT * FROM workflow_runs WHERE id = $1 AND application_id = $2",
+                "n": 1501
+              },
+              {
+                "key": "sql SELECT * FROM workflow_steps WHERE run_id = $1 AND correlation_id = $2 AND application_id = $3 FOR UPDATE",
+                "n": 1200
+              },
+              {
+                "key": "sql SELECT id, status FROM workflow_steps WHERE run_id = $1 AND correlation_id = $2 AND application_id = $3 FOR UPDATE",
+                "n": 1200
+              },
+              {
+                "key": "sql UPDATE workflow_steps SET status = 'completed', output = $3, completed_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+                "n": 1200
+              },
+              {
+                "key": "sql SELECT * FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND slot >= $3 AND slot < $4 ORDER BY slot ASC LIMIT $5",
+                "n": 869
+              },
+              {
+                "key": "sql SELECT * FROM workflow_runs WHERE id = $1",
+                "n": 853
+              },
+              {
+                "key": "sql INSERT INTO workflow_queue_messages (idempotency_key, queue_name, run_id, deployment_version, application_id, payload, payload_bytes, payload_encoding, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 'pending') RETURNING id",
+                "n": 840
+              },
+              {
+                "key": "sql SELECT pg_notify('deferred_messages', '{}')",
+                "n": 840
+              },
+              {
+                "key": "sql SELECT workflow_url, step_url, webhook_url FROM workflow_queue_handlers WHERE application_id = $1 AND deployment_version = $2 ORDER BY last_heartbeat DESC",
+                "n": 840
+              },
+              {
+                "key": "sql UPDATE workflow_queue_messages SET status = 'delivered', delivered_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2 AND status = 'pending' AND attempts = $3 RETURNING id",
+                "n": 840
+              },
+              {
+                "key": "sql INSERT INTO workflow_steps (id, run_id, application_id, correlation_id, step_name, status, input, spec_version) VALUES ($1, $2, $3, $4, $5, 'pending', $6, $7) ON CONFLICT (run_id, correlation_id, step_name) DO NOTHING RETURNING id",
+                "n": 816
+              },
+              {
+                "key": "sql SELECT id FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND event_type = $3 AND correlation_id = $4 LIMIT 1",
+                "n": 816
+              },
+              {
+                "key": "sql SELECT id FROM workflow_queue_messages WHERE idempotency_key = $1",
+                "n": 816
+              },
+              {
+                "key": "sql UPDATE workflow_steps SET status = 'running', attempt = $3, retry_after = NULL, started_at = COALESCE(started_at, NOW()), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+                "n": 816
+              },
+              {
+                "key": "sql SELECT status FROM workflow_runs WHERE id = $1 AND application_id = $2",
+                "n": 805
+              },
+              {
+                "key": "sql INSERT INTO workflow_steps (id, run_id, application_id, correlation_id, step_name, status, input, spec_version, started_at, attempt) VALUES ($1, $2, $3, $4, $5, 'running', $6, $7, NOW(), 1) ON CONFLICT (run_id, correlation_id, step_name) DO NOTHING RETURNING id",
+                "n": 384
+              },
+              {
+                "key": "sql UPDATE workflow_hooks SET status = 'disposed', disposed_at = NOW() WHERE run_id = $1 AND application_id = $2 AND status != 'disposed'",
+                "n": 101
+              },
+              {
+                "key": "sql UPDATE workflow_runs SET status = 'completed', output = $3, completed_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+                "n": 101
+              },
+              {
+                "key": "sql UPDATE workflow_waits SET status = 'completed', completed_at = NOW(), updated_at = NOW() WHERE run_id = $1 AND application_id = $2 AND status = 'waiting'",
+                "n": 101
+              },
+              {
+                "key": "sql SELECT * FROM workflow_queue_messages WHERE status = 'failed' AND attempts >= 10 ORDER BY created_at ASC LIMIT 100",
+                "n": 86
+              },
+              {
+                "key": "sql SELECT * FROM workflow_queue_messages WHERE status = 'pending' AND NOT (id = ANY($1::bigint[])) ORDER BY created_at ASC FOR UPDATE SKIP LOCKED LIMIT $2",
+                "n": 86
+              },
+              {
+                "key": "sql SELECT EXTRACT(EPOCH FROM (MIN(next_time) - NOW())) AS secs FROM ( SELECT deliver_at AS next_time FROM workflow_queue_messages WHERE status = 'deferred' AND deliver_at > NOW() UNION ALL SELECT next_retry_at AS next_time FROM workflow_queue_messages WHERE status = 'failed' AND next_retry_at > NOW() AND attempts < 10 ) t",
+                "n": 86
+              },
+              {
+                "key": "sql UPDATE workflow_queue_messages SET status = 'pending', updated_at = NOW() WHERE status = 'deferred' AND deliver_at <= NOW()",
+                "n": 86
+              },
+              {
+                "key": "sql UPDATE workflow_queue_messages SET status = 'pending', updated_at = NOW() WHERE status = 'failed' AND next_retry_at <= NOW() AND attempts < 10",
+                "n": 86
+              },
+              {
+                "key": "sql INSERT INTO workflow_runs (id, application_id, workflow_name, deployment_id, status, input, execution_context, spec_version, attributes) VALUES ($1, $2, $3, $4, 'pending', $5, $6, $7, $8) ON CONFLICT (id) DO NOTHING RETURNING id",
+                "n": 24
+              },
+              {
+                "key": "sql SELECT COUNT(*)::int as count FROM workflow_runs WHERE application_id = $1 AND status IN ('pending', 'running')",
+                "n": 24
+              },
+              {
+                "key": "sql SELECT id FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND event_type = 'run_started' LIMIT 1",
+                "n": 24
+              },
+              {
+                "key": "sql SELECT id FROM workflow_runs WHERE id = $1 AND application_id = $2",
+                "n": 24
+              },
+              {
+                "key": "sql UPDATE workflow_runs SET status = 'running', started_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+                "n": 24
+              },
+              {
+                "key": "sql SELECT pg_try_advisory_lock($1) as leader",
+                "n": 1
+              }
+            ],
+            "httpBytes": []
+          }
+        ]
+      },
+      "databaseProbe": {
+        "completedSteps": 1200,
+        "delta": {
+          "xact_commit": 20657,
+          "xact_rollback": 0,
+          "blks_read": 242,
+          "blks_hit": 339752,
+          "tup_returned": 532402,
+          "tup_fetched": 510208,
+          "tup_inserted": 6513,
+          "tup_updated": 2906,
+          "tup_deleted": 93,
+          "temp_files": 0,
+          "temp_bytes": 0,
+          "blk_read_time": 0,
+          "blk_write_time": 0,
+          "active_time": 21715.89
+        },
+        "perStep": {
+          "xact_commit": 17.214167,
+          "xact_rollback": 0,
+          "blks_read": 0.201667,
+          "blks_hit": 283.126667,
+          "tup_returned": 443.668333,
+          "tup_fetched": 425.173333,
+          "tup_inserted": 5.4275,
+          "tup_updated": 2.421667,
+          "tup_deleted": 0.0775,
+          "temp_files": 0,
+          "temp_bytes": 0,
+          "blk_read_time": 0,
+          "blk_write_time": 0,
+          "active_time": 18.096575
+        }
+      },
+      "platformaticWorld": {
+        "appId": "w1-t0-93677-1789948535237",
+        "serviceUrl": "http://127.0.0.1:3157",
+        "timingSource": "application request-to-return-value duration"
+      }
+    },
+    {
+      "topology": "t0",
+      "concurrency": 4,
+      "repetition": 2,
+      "runnerWorkers": 2,
+      "pollIntervalMs": 20,
+      "prepopulation": {
+        "count": 0,
+        "durationMs": 0
+      },
+      "url": "http://127.0.0.1:3041",
+      "ping": {
+        "requests": 2501,
+        "errors": 0,
+        "timeouts": 0,
+        "requestsPerSecond": 166.74,
+        "latencyMs": {
+          "min": 1,
+          "p50": 235,
+          "p75": 457,
+          "p99": 1007,
+          "p99_9": 1082,
+          "max": 1091,
+          "mean": 296.44
+        }
+      },
+      "workflows": {
+        "scheduled": 20,
+        "started": 20,
+        "completed": 20,
+        "failed": 0,
+        "completionsDuringWindow": 16,
+        "completionsPerSecond": 1.0666666666666667,
+        "stepsDuringWindow": 800,
+        "stepsPerSecond": 53.333333333333336,
+        "runtimeReadErrors": 0,
+        "runtimeMs": {
+          "count": 20,
+          "min": 2739,
+          "p50": 2939,
+          "p75": 3076,
+          "p99": 3410,
+          "max": 3410,
+          "mean": 3002.9
+        },
+        "requestRoundTripMs": {
+          "count": 20,
+          "min": 2741.836542000001,
+          "p50": 2941.242957999999,
+          "p75": 3078.581665999998,
+          "p99": 3411.3928749999977,
+          "max": 3411.3928749999977,
+          "mean": 3006.7156521000006
+        },
+        "returnValueObservationMs": {
+          "count": 20,
+          "min": 2739,
+          "p50": 2939,
+          "p75": 3076,
+          "p99": 3410,
+          "max": 3410,
+          "mean": 3002.9
+        },
+        "errors": []
+      },
+      "load": {
+        "launchLagMs": {
+          "count": 4,
+          "min": 1.1585830000003625,
+          "p50": 1.5638749999998254,
+          "p75": 1.7681250000023283,
+          "p99": 1.899542000002839,
+          "max": 1.899542000002839,
+          "mean": 1.5975312500013388
+        },
+        "inFlightSamples": [
+          {
+            "elapsedMs": 9.827375000000757,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 260.4078750000008,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 509.63579200000095,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 760.1232920000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1009.8039170000011,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1261.8505829999995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1512.4575000000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1764.1675830000022,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2015.5870420000028,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2267.9580000000024,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2517.854625,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2768.3470420000012,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3019.203708000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3270.130500000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3520.020542000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3772.0842919999996,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4022.7204170000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4274.788875000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4526.895833000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4778.953917000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5031.214417000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5283.133375000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5535.229292,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5785.290917000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6035.400250000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6285.913875000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6538.352208,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6790.408792000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7040.157292,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7292.210833000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7544.3818329999995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7794.978292,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8045.549333000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8297.608792000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8547.693167000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8798.148875000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9047.602375000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9298.925833000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9551.125208000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9803.197750000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10054.831042000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10306.889,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10558.457625,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10810.322125000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11062.429874999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11314.481333,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11565.161250000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11816.795417000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12067.507875,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12319.566542000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12571.752625000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12823.835125000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13075.635250000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13327.692875000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13579.790958000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13831.076958000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14083.106499999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14335.218458,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14587.377667000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14836.713874999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14998.700625000001,
+            "inFlight": 4
+          }
+        ],
+        "endBacklog": 4,
+        "backlogSlopePerSecond": 0,
+        "drainMs": 35.60829200000444
+      },
+      "runtimeProbe": {
+        "completedRuns": 20,
+        "gc": {
+          "count": 215,
+          "totalMs": 1700.362,
+          "maxMs": 408.763,
+          "pausesPerRun": 10.75,
+          "msPerRun": 85.018
+        },
+        "maxEventLoopDelayMs": 1303.38,
+        "maxEventLoopDelayWorker": "t0-0",
+        "processes": [
+          {
+            "pid": 93697,
+            "labels": [
+              "t0-0"
+            ],
+            "rssPeakBytes": 3534389248,
+            "rssSteadyBytes": 1731198976
+          },
+          {
+            "pid": 93695,
+            "labels": [
+              "t0-world-service-0",
+              "workflow-0"
+            ],
+            "rssPeakBytes": 411090944,
+            "rssSteadyBytes": 405520384
+          }
+        ],
+        "workers": [
+          {
+            "application": "t0",
+            "worker": 0,
+            "threadId": 0,
+            "label": "t0-0",
+            "pid": 93697,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 179,
+              "totalMs": 1660.189,
+              "maxMs": 408.763,
+              "byKind": {
+                "minor": {
+                  "count": 167,
+                  "totalMs": 866.248
+                },
+                "incremental": {
+                  "count": 6,
+                  "totalMs": 10.23
+                },
+                "major": {
+                  "count": 6,
+                  "totalMs": 783.711
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 30.471,
+              "p50Ms": 10.191,
+              "p99Ms": 547.881,
+              "maxMs": 1303.38
+            },
+            "rssBytes": {
+              "samples": 73,
+              "min": 199835648,
+              "median": 1731198976,
+              "p90": 2905161728,
+              "peak": 3534389248,
+              "last": 3534389248
+            },
+            "heapUsedBytes": {
+              "samples": 73,
+              "min": 51645320,
+              "median": 1324298432,
+              "p90": 2416782904,
+              "peak": 2945102096,
+              "last": 2828975744
+            }
+          },
+          {
+            "application": "t0-world-service",
+            "worker": 0,
+            "threadId": 0,
+            "label": "t0-world-service-0",
+            "pid": 93695,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 2,
+              "totalMs": 1.105,
+              "maxMs": 0.576,
+              "byKind": {
+                "minor": {
+                  "count": 2,
+                  "totalMs": 1.105
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 11.116,
+              "p50Ms": 11.338,
+              "p99Ms": 12.452,
+              "maxMs": 14.86
+            },
+            "rssBytes": {
+              "samples": 156,
+              "min": 292470784,
+              "median": 405520384,
+              "p90": 411058176,
+              "peak": 411090944,
+              "last": 411090944
+            },
+            "heapUsedBytes": {
+              "samples": 156,
+              "min": 34880312,
+              "median": 49647648,
+              "p90": 56914600,
+              "peak": 60160296,
+              "last": 58798072
+            }
+          },
+          {
+            "application": "workflow",
+            "worker": 0,
+            "threadId": 1,
+            "label": "workflow-0",
+            "pid": 93695,
+            "generation": 2,
+            "reason": "freeze",
+            "gc": {
+              "count": 34,
+              "totalMs": 39.068,
+              "maxMs": 3.453,
+              "byKind": {
+                "minor": {
+                  "count": 12,
+                  "totalMs": 16.193
+                },
+                "incremental": {
+                  "count": 11,
+                  "totalMs": 1.852
+                },
+                "major": {
+                  "count": 11,
+                  "totalMs": 21.023
+                }
+              }
+            },
+            "eventLoopDelay": {
+              "meanMs": 11.062,
+              "p50Ms": 11.223,
+              "p99Ms": 12.493,
+              "maxMs": 16.114
+            },
+            "rssBytes": {
+              "samples": 156,
+              "min": 292536320,
+              "median": 405520384,
+              "p90": 411058176,
+              "peak": 411074560,
+              "last": 411074560
+            },
+            "heapUsedBytes": {
+              "samples": 156,
+              "min": 39710008,
+              "median": 68068064,
+              "p90": 90564336,
+              "peak": 93240936,
+              "last": 82599248
+            }
+          }
+        ]
+      },
+      "worldProbe": {
+        "completedSteps": 1000,
+        "http": {
+          "total": 9224,
+          "perStep": 9.224,
+          "operations": [
+            {
+              "key": "POST /api/v1/apps/:appId/runs/:runId/events",
+              "n": 3398,
+              "perStep": 3.398
+            },
+            {
+              "key": "GET /api/v1/apps/:appId/encryption-key",
+              "n": 1778,
+              "perStep": 1.778
+            },
+            {
+              "key": "GET /api/v1/apps/:appId/runs/:runId/events?cursor",
+              "n": 1378,
+              "perStep": 1.378
+            },
+            {
+              "key": "GET /api/v1/apps/:appId/runs/:runId",
+              "n": 1270,
+              "perStep": 1.27
+            },
+            {
+              "key": "GET /api/v1/apps/:appId/runs/:runId/events?initial",
+              "n": 700,
+              "perStep": 0.7
+            },
+            {
+              "key": "POST /api/v1/apps/:appId/queue",
+              "n": 700,
+              "perStep": 0.7
+            }
+          ]
+        },
+        "sql": {
+          "total": 35262,
+          "perStep": 35.262,
+          "operations": [
+            {
+              "key": "BEGIN",
+              "n": 4098,
+              "perStep": 4.098
+            },
+            {
+              "key": "COMMIT",
+              "n": 4098,
+              "perStep": 4.098
+            },
+            {
+              "key": "SELECT COUNT(*)::int as count FROM workflow_events WHERE application_id = $1 AND run_id = $2",
+              "n": 3378,
+              "perStep": 3.378
+            },
+            {
+              "key": "INSERT INTO workflow_events (run_id, application_id, event_type, correlation_id, event_data, spec_version) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+              "n": 2803,
+              "perStep": 2.803
+            },
+            {
+              "key": "SELECT * FROM workflow_steps WHERE id = $1",
+              "n": 2680,
+              "perStep": 2.68
+            },
+            {
+              "key": "SELECT * FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND ($3::bigint IS NULL OR slot > $3) AND ($4::int IS NULL OR id > $4) ORDER BY COALESCE(slot::bigint, id::bigint) ASC LIMIT $5",
+              "n": 2078,
+              "perStep": 2.078
+            },
+            {
+              "key": "SELECT secret FROM workflow_encryption_keys WHERE application_id = $1",
+              "n": 1778,
+              "perStep": 1.778
+            },
+            {
+              "key": "SELECT status FROM workflow_deployment_versions WHERE application_id = $1 AND deployment_version = $2",
+              "n": 1400,
+              "perStep": 1.4
+            },
+            {
+              "key": "SELECT * FROM workflow_runs WHERE id = $1 AND application_id = $2",
+              "n": 1270,
+              "perStep": 1.27
+            },
+            {
+              "key": "SELECT * FROM workflow_steps WHERE run_id = $1 AND correlation_id = $2 AND application_id = $3 FOR UPDATE",
+              "n": 1000,
+              "perStep": 1
+            },
+            {
+              "key": "SELECT id, status FROM workflow_steps WHERE run_id = $1 AND correlation_id = $2 AND application_id = $3 FOR UPDATE",
+              "n": 1000,
+              "perStep": 1
+            },
+            {
+              "key": "UPDATE workflow_steps SET status = 'completed', output = $3, completed_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+              "n": 1000,
+              "perStep": 1
+            },
+            {
+              "key": "SELECT * FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND slot >= $3 AND slot < $4 ORDER BY slot ASC LIMIT $5",
+              "n": 723,
+              "perStep": 0.723
+            },
+            {
+              "key": "SELECT * FROM workflow_runs WHERE id = $1",
+              "n": 718,
+              "perStep": 0.718
+            },
+            {
+              "key": "INSERT INTO workflow_queue_messages (idempotency_key, queue_name, run_id, deployment_version, application_id, payload, payload_bytes, payload_encoding, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 'pending') RETURNING id",
+              "n": 700,
+              "perStep": 0.7
+            },
+            {
+              "key": "SELECT pg_notify('deferred_messages', '{}')",
+              "n": 700,
+              "perStep": 0.7
+            },
+            {
+              "key": "SELECT workflow_url, step_url, webhook_url FROM workflow_queue_handlers WHERE application_id = $1 AND deployment_version = $2 ORDER BY last_heartbeat DESC",
+              "n": 700,
+              "perStep": 0.7
+            },
+            {
+              "key": "UPDATE workflow_queue_messages SET status = 'delivered', delivered_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2 AND status = 'pending' AND attempts = $3 RETURNING id",
+              "n": 700,
+              "perStep": 0.7
+            },
+            {
+              "key": "INSERT INTO workflow_steps (id, run_id, application_id, correlation_id, step_name, status, input, spec_version) VALUES ($1, $2, $3, $4, $5, 'pending', $6, $7) ON CONFLICT (run_id, correlation_id, step_name) DO NOTHING RETURNING id",
+              "n": 680,
+              "perStep": 0.68
+            },
+            {
+              "key": "SELECT id FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND event_type = $3 AND correlation_id = $4 LIMIT 1",
+              "n": 680,
+              "perStep": 0.68
+            },
+            {
+              "key": "SELECT id FROM workflow_queue_messages WHERE idempotency_key = $1",
+              "n": 680,
+              "perStep": 0.68
+            },
+            {
+              "key": "UPDATE workflow_steps SET status = 'running', attempt = $3, retry_after = NULL, started_at = COALESCE(started_at, NOW()), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+              "n": 680,
+              "perStep": 0.68
+            },
+            {
+              "key": "SELECT status FROM workflow_runs WHERE id = $1 AND application_id = $2",
+              "n": 678,
+              "perStep": 0.678
+            },
+            {
+              "key": "INSERT INTO workflow_steps (id, run_id, application_id, correlation_id, step_name, status, input, spec_version, started_at, attempt) VALUES ($1, $2, $3, $4, $5, 'running', $6, $7, NOW(), 1) ON CONFLICT (run_id, correlation_id, step_name) DO NOTHING RETURNING id",
+              "n": 320,
+              "perStep": 0.32
+            },
+            {
+              "key": "UPDATE workflow_hooks SET status = 'disposed', disposed_at = NOW() WHERE run_id = $1 AND application_id = $2 AND status != 'disposed'",
+              "n": 83,
+              "perStep": 0.083
+            },
+            {
+              "key": "UPDATE workflow_runs SET status = 'completed', output = $3, completed_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+              "n": 83,
+              "perStep": 0.083
+            },
+            {
+              "key": "UPDATE workflow_waits SET status = 'completed', completed_at = NOW(), updated_at = NOW() WHERE run_id = $1 AND application_id = $2 AND status = 'waiting'",
+              "n": 83,
+              "perStep": 0.083
+            },
+            {
+              "key": "SELECT * FROM workflow_queue_messages WHERE status = 'failed' AND attempts >= 10 ORDER BY created_at ASC LIMIT 100",
+              "n": 74,
+              "perStep": 0.074
+            },
+            {
+              "key": "SELECT * FROM workflow_queue_messages WHERE status = 'pending' AND NOT (id = ANY($1::bigint[])) ORDER BY created_at ASC FOR UPDATE SKIP LOCKED LIMIT $2",
+              "n": 74,
+              "perStep": 0.074
+            },
+            {
+              "key": "SELECT EXTRACT(EPOCH FROM (MIN(next_time) - NOW())) AS secs FROM ( SELECT deliver_at AS next_time FROM workflow_queue_messages WHERE status = 'deferred' AND deliver_at > NOW() UNION ALL SELECT next_retry_at AS next_time FROM workflow_queue_messages WHERE status = 'failed' AND next_retry_at > NOW() AND attempts < 10 ) t",
+              "n": 74,
+              "perStep": 0.074
+            },
+            {
+              "key": "UPDATE workflow_queue_messages SET status = 'pending', updated_at = NOW() WHERE status = 'deferred' AND deliver_at <= NOW()",
+              "n": 74,
+              "perStep": 0.074
+            },
+            {
+              "key": "UPDATE workflow_queue_messages SET status = 'pending', updated_at = NOW() WHERE status = 'failed' AND next_retry_at <= NOW() AND attempts < 10",
+              "n": 74,
+              "perStep": 0.074
+            },
+            {
+              "key": "INSERT INTO workflow_runs (id, application_id, workflow_name, deployment_id, status, input, execution_context, spec_version, attributes) VALUES ($1, $2, $3, $4, 'pending', $5, $6, $7, $8) ON CONFLICT (id) DO NOTHING RETURNING id",
+              "n": 20,
+              "perStep": 0.02
+            },
+            {
+              "key": "SELECT COUNT(*)::int as count FROM workflow_runs WHERE application_id = $1 AND status IN ('pending', 'running')",
+              "n": 20,
+              "perStep": 0.02
+            },
+            {
+              "key": "SELECT id FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND event_type = 'run_started' LIMIT 1",
+              "n": 20,
+              "perStep": 0.02
+            },
+            {
+              "key": "SELECT id FROM workflow_runs WHERE id = $1 AND application_id = $2",
+              "n": 20,
+              "perStep": 0.02
+            },
+            {
+              "key": "UPDATE workflow_runs SET status = 'running', started_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+              "n": 20,
+              "perStep": 0.02
+            },
+            {
+              "key": "SELECT pg_try_advisory_lock($1) as leader",
+              "n": 1,
+              "perStep": 0.001
+            }
+          ]
+        },
+        "workers": [
+          {
+            "mode": "client",
+            "application": "t0",
+            "worker": 0,
+            "threadId": 0,
+            "pid": 93697,
+            "label": "client-t0-0",
+            "generation": 2,
+            "reason": "freeze",
+            "total": 9224,
+            "operations": [
+              {
+                "key": "http POST /api/v1/apps/:appId/runs/:runId/events",
+                "n": 3398
+              },
+              {
+                "key": "http GET /api/v1/apps/:appId/encryption-key",
+                "n": 1778
+              },
+              {
+                "key": "http GET /api/v1/apps/:appId/runs/:runId/events?cursor",
+                "n": 1378
+              },
+              {
+                "key": "http GET /api/v1/apps/:appId/runs/:runId",
+                "n": 1270
+              },
+              {
+                "key": "http GET /api/v1/apps/:appId/runs/:runId/events?initial",
+                "n": 700
+              },
+              {
+                "key": "http POST /api/v1/apps/:appId/queue",
+                "n": 700
+              }
+            ],
+            "httpBytes": []
+          },
+          {
+            "mode": "service",
+            "application": "t0-world-service",
+            "worker": 0,
+            "threadId": 0,
+            "pid": 93695,
+            "label": "service-t0-world-service-0",
+            "generation": 2,
+            "reason": "freeze",
+            "total": 0,
+            "operations": [],
+            "httpBytes": []
+          },
+          {
+            "mode": "service",
+            "application": "workflow",
+            "worker": 0,
+            "threadId": 1,
+            "pid": 93695,
+            "label": "service-workflow-0",
+            "generation": 2,
+            "reason": "freeze",
+            "total": 35262,
+            "operations": [
+              {
+                "key": "sql BEGIN",
+                "n": 4098
+              },
+              {
+                "key": "sql COMMIT",
+                "n": 4098
+              },
+              {
+                "key": "sql SELECT COUNT(*)::int as count FROM workflow_events WHERE application_id = $1 AND run_id = $2",
+                "n": 3378
+              },
+              {
+                "key": "sql INSERT INTO workflow_events (run_id, application_id, event_type, correlation_id, event_data, spec_version) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+                "n": 2803
+              },
+              {
+                "key": "sql SELECT * FROM workflow_steps WHERE id = $1",
+                "n": 2680
+              },
+              {
+                "key": "sql SELECT * FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND ($3::bigint IS NULL OR slot > $3) AND ($4::int IS NULL OR id > $4) ORDER BY COALESCE(slot::bigint, id::bigint) ASC LIMIT $5",
+                "n": 2078
+              },
+              {
+                "key": "sql SELECT secret FROM workflow_encryption_keys WHERE application_id = $1",
+                "n": 1778
+              },
+              {
+                "key": "sql SELECT status FROM workflow_deployment_versions WHERE application_id = $1 AND deployment_version = $2",
+                "n": 1400
+              },
+              {
+                "key": "sql SELECT * FROM workflow_runs WHERE id = $1 AND application_id = $2",
+                "n": 1270
+              },
+              {
+                "key": "sql SELECT * FROM workflow_steps WHERE run_id = $1 AND correlation_id = $2 AND application_id = $3 FOR UPDATE",
+                "n": 1000
+              },
+              {
+                "key": "sql SELECT id, status FROM workflow_steps WHERE run_id = $1 AND correlation_id = $2 AND application_id = $3 FOR UPDATE",
+                "n": 1000
+              },
+              {
+                "key": "sql UPDATE workflow_steps SET status = 'completed', output = $3, completed_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+                "n": 1000
+              },
+              {
+                "key": "sql SELECT * FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND slot >= $3 AND slot < $4 ORDER BY slot ASC LIMIT $5",
+                "n": 723
+              },
+              {
+                "key": "sql SELECT * FROM workflow_runs WHERE id = $1",
+                "n": 718
+              },
+              {
+                "key": "sql INSERT INTO workflow_queue_messages (idempotency_key, queue_name, run_id, deployment_version, application_id, payload, payload_bytes, payload_encoding, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, 'pending') RETURNING id",
+                "n": 700
+              },
+              {
+                "key": "sql SELECT pg_notify('deferred_messages', '{}')",
+                "n": 700
+              },
+              {
+                "key": "sql SELECT workflow_url, step_url, webhook_url FROM workflow_queue_handlers WHERE application_id = $1 AND deployment_version = $2 ORDER BY last_heartbeat DESC",
+                "n": 700
+              },
+              {
+                "key": "sql UPDATE workflow_queue_messages SET status = 'delivered', delivered_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2 AND status = 'pending' AND attempts = $3 RETURNING id",
+                "n": 700
+              },
+              {
+                "key": "sql INSERT INTO workflow_steps (id, run_id, application_id, correlation_id, step_name, status, input, spec_version) VALUES ($1, $2, $3, $4, $5, 'pending', $6, $7) ON CONFLICT (run_id, correlation_id, step_name) DO NOTHING RETURNING id",
+                "n": 680
+              },
+              {
+                "key": "sql SELECT id FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND event_type = $3 AND correlation_id = $4 LIMIT 1",
+                "n": 680
+              },
+              {
+                "key": "sql SELECT id FROM workflow_queue_messages WHERE idempotency_key = $1",
+                "n": 680
+              },
+              {
+                "key": "sql UPDATE workflow_steps SET status = 'running', attempt = $3, retry_after = NULL, started_at = COALESCE(started_at, NOW()), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+                "n": 680
+              },
+              {
+                "key": "sql SELECT status FROM workflow_runs WHERE id = $1 AND application_id = $2",
+                "n": 678
+              },
+              {
+                "key": "sql INSERT INTO workflow_steps (id, run_id, application_id, correlation_id, step_name, status, input, spec_version, started_at, attempt) VALUES ($1, $2, $3, $4, $5, 'running', $6, $7, NOW(), 1) ON CONFLICT (run_id, correlation_id, step_name) DO NOTHING RETURNING id",
+                "n": 320
+              },
+              {
+                "key": "sql UPDATE workflow_hooks SET status = 'disposed', disposed_at = NOW() WHERE run_id = $1 AND application_id = $2 AND status != 'disposed'",
+                "n": 83
+              },
+              {
+                "key": "sql UPDATE workflow_runs SET status = 'completed', output = $3, completed_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+                "n": 83
+              },
+              {
+                "key": "sql UPDATE workflow_waits SET status = 'completed', completed_at = NOW(), updated_at = NOW() WHERE run_id = $1 AND application_id = $2 AND status = 'waiting'",
+                "n": 83
+              },
+              {
+                "key": "sql SELECT * FROM workflow_queue_messages WHERE status = 'failed' AND attempts >= 10 ORDER BY created_at ASC LIMIT 100",
+                "n": 74
+              },
+              {
+                "key": "sql SELECT * FROM workflow_queue_messages WHERE status = 'pending' AND NOT (id = ANY($1::bigint[])) ORDER BY created_at ASC FOR UPDATE SKIP LOCKED LIMIT $2",
+                "n": 74
+              },
+              {
+                "key": "sql SELECT EXTRACT(EPOCH FROM (MIN(next_time) - NOW())) AS secs FROM ( SELECT deliver_at AS next_time FROM workflow_queue_messages WHERE status = 'deferred' AND deliver_at > NOW() UNION ALL SELECT next_retry_at AS next_time FROM workflow_queue_messages WHERE status = 'failed' AND next_retry_at > NOW() AND attempts < 10 ) t",
+                "n": 74
+              },
+              {
+                "key": "sql UPDATE workflow_queue_messages SET status = 'pending', updated_at = NOW() WHERE status = 'deferred' AND deliver_at <= NOW()",
+                "n": 74
+              },
+              {
+                "key": "sql UPDATE workflow_queue_messages SET status = 'pending', updated_at = NOW() WHERE status = 'failed' AND next_retry_at <= NOW() AND attempts < 10",
+                "n": 74
+              },
+              {
+                "key": "sql INSERT INTO workflow_runs (id, application_id, workflow_name, deployment_id, status, input, execution_context, spec_version, attributes) VALUES ($1, $2, $3, $4, 'pending', $5, $6, $7, $8) ON CONFLICT (id) DO NOTHING RETURNING id",
+                "n": 20
+              },
+              {
+                "key": "sql SELECT COUNT(*)::int as count FROM workflow_runs WHERE application_id = $1 AND status IN ('pending', 'running')",
+                "n": 20
+              },
+              {
+                "key": "sql SELECT id FROM workflow_events WHERE run_id = $1 AND application_id = $2 AND event_type = 'run_started' LIMIT 1",
+                "n": 20
+              },
+              {
+                "key": "sql SELECT id FROM workflow_runs WHERE id = $1 AND application_id = $2",
+                "n": 20
+              },
+              {
+                "key": "sql UPDATE workflow_runs SET status = 'running', started_at = NOW(), updated_at = NOW() WHERE id = $1 AND application_id = $2",
+                "n": 20
+              },
+              {
+                "key": "sql SELECT pg_try_advisory_lock($1) as leader",
+                "n": 1
+              }
+            ],
+            "httpBytes": []
+          }
+        ]
+      },
+      "databaseProbe": {
+        "completedSteps": 1000,
+        "delta": {
+          "xact_commit": 17655,
+          "xact_rollback": 0,
+          "blks_read": 10,
+          "blks_hit": 280859,
+          "tup_returned": 480310,
+          "tup_fetched": 408056,
+          "tup_inserted": 4526,
+          "tup_updated": 2343,
+          "tup_deleted": 0,
+          "temp_files": 0,
+          "temp_bytes": 0,
+          "blk_read_time": 0,
+          "blk_write_time": 0,
+          "active_time": 18830.198
+        },
+        "perStep": {
+          "xact_commit": 17.655,
+          "xact_rollback": 0,
+          "blks_read": 0.01,
+          "blks_hit": 280.859,
+          "tup_returned": 480.31,
+          "tup_fetched": 408.056,
+          "tup_inserted": 4.526,
+          "tup_updated": 2.343,
+          "tup_deleted": 0,
+          "temp_files": 0,
+          "temp_bytes": 0,
+          "blk_read_time": 0,
+          "blk_write_time": 0,
+          "active_time": 18.830198
+        }
+      },
+      "platformaticWorld": {
+        "appId": "w1-t0-93677-1789948556846",
+        "serviceUrl": "http://127.0.0.1:3157",
+        "timingSource": "application request-to-return-value duration"
+      }
+    }
+  ]
+}

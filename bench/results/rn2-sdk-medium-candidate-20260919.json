@@ -1,0 +1,1391 @@
+{
+  "benchmark": "W1",
+  "timestamp": "2026-09-20T00:40:37.403Z",
+  "system": {
+    "hostname": "zion",
+    "platform": "darwin",
+    "release": "27.0.0",
+    "cpus": 14,
+    "node": "v24.19.0"
+  },
+  "config": {
+    "topology": "t0",
+    "duration": 20,
+    "pingRps": 200,
+    "pingConnections": 20,
+    "workflowRpsExplicit": false,
+    "concurrency": 4,
+    "repetitions": 3,
+    "steps": 20,
+    "payloadBytes": 262144,
+    "workflowMode": "seq",
+    "prepopulateEvents": 0,
+    "pollIntervalMs": 20,
+    "workflowSdkRoot": "/Users/batman/src/platformatic/workflow-sdk-serialization-pr",
+    "platformaticWorldRoot": "/Users/batman/src/platformatic/platformatic-world-latest-control",
+    "worldDatabaseUrl": "postgresql://wf:REDACTED@127.0.0.1:5434/rn2sdk_medium_candidate_20260919?sslmode=disable",
+    "worldServicePort": 3050,
+    "wattConfig": "watt.json",
+    "wattConfigExplicit": false,
+    "runnerWorkers": 2,
+    "runnerWorkersExplicit": false,
+    "output": "/Users/batman/src/platformatic/workflowsdk-in-watt/bench/results/rn2-sdk-medium-candidate-20260919.json",
+    "keepData": false,
+    "pprof": false,
+    "fsProbe": false,
+    "runtimeProbe": false,
+    "sessionCostProbe": false,
+    "databaseProbe": false,
+    "worldProbe": false,
+    "effectivePollIntervalMs": 20
+  },
+  "aggregates": [
+    {
+      "concurrency": 4,
+      "topologies": {
+        "t0": {
+          "repetitions": 3,
+          "ping": {
+            "p50Ms": {
+              "repetitions": 3,
+              "median": 0,
+              "min": 0,
+              "max": 0
+            },
+            "p99Ms": {
+              "repetitions": 3,
+              "median": 16,
+              "min": 14,
+              "max": 20
+            },
+            "p99_9Ms": {
+              "repetitions": 3,
+              "median": 20,
+              "min": 18,
+              "max": 22
+            }
+          },
+          "workflows": {
+            "completionsPerSecond": {
+              "repetitions": 3,
+              "median": 12.1,
+              "min": 11.6,
+              "max": 12.6
+            },
+            "stepsPerSecond": {
+              "repetitions": 3,
+              "median": 242,
+              "min": 232,
+              "max": 252
+            },
+            "runtimeP50Ms": {
+              "repetitions": 3,
+              "median": 321,
+              "min": 312,
+              "max": 333
+            },
+            "observationP50Ms": {
+              "repetitions": 3,
+              "median": 321,
+              "min": 312,
+              "max": 333
+            },
+            "requestRoundTripP50Ms": {
+              "repetitions": 3,
+              "median": 322.691334,
+              "min": 313.992209,
+              "max": 334.649958
+            },
+            "requestRoundTripP99Ms": {
+              "repetitions": 3,
+              "median": 437.169375,
+              "min": 423.702375,
+              "max": 470.832959
+            },
+            "requestRoundTripMaxMs": {
+              "repetitions": 3,
+              "median": 463.31,
+              "min": 444.080834,
+              "max": 472.262209
+            },
+            "failed": 0
+          },
+          "fsProbe": {
+            "fsOpsPerStep": {
+              "repetitions": 0
+            },
+            "fsMsPerStep": {
+              "repetitions": 0
+            }
+          },
+          "load": {
+            "launchLagP99Ms": {
+              "repetitions": 3,
+              "median": 1.765458,
+              "min": 0.273541,
+              "max": 4.061417
+            },
+            "backlogSlopePerSecond": {
+              "repetitions": 3,
+              "median": 0,
+              "min": 0,
+              "max": 0
+            },
+            "endBacklog": {
+              "repetitions": 3,
+              "median": 4,
+              "min": 4,
+              "max": 4
+            },
+            "drainMs": {
+              "repetitions": 3,
+              "median": 198.346959,
+              "min": 185.903291,
+              "max": 201.9275
+            }
+          }
+        }
+      },
+      "runnerWorkers": 2,
+      "sweepDecision": {
+        "stop": false,
+        "reasons": []
+      }
+    }
+  ],
+  "results": [
+    {
+      "topology": "t0",
+      "concurrency": 4,
+      "repetition": 1,
+      "runnerWorkers": 2,
+      "pollIntervalMs": 20,
+      "prepopulation": {
+        "count": 0,
+        "durationMs": 0
+      },
+      "url": "http://127.0.0.1:3041",
+      "ping": {
+        "requests": 4000,
+        "errors": 0,
+        "timeouts": 0,
+        "requestsPerSecond": 200,
+        "latencyMs": {
+          "min": 1,
+          "p50": 0,
+          "p75": 1,
+          "p99": 16,
+          "p99_9": 18,
+          "max": 20,
+          "mean": 1.67
+        }
+      },
+      "workflows": {
+        "scheduled": 256,
+        "started": 256,
+        "completed": 256,
+        "failed": 0,
+        "completionsDuringWindow": 252,
+        "completionsPerSecond": 12.6,
+        "stepsDuringWindow": 5040,
+        "stepsPerSecond": 252,
+        "runtimeReadErrors": 0,
+        "runtimeMs": {
+          "count": 256,
+          "min": 271,
+          "p50": 312,
+          "p75": 322,
+          "p99": 425,
+          "max": 429,
+          "mean": 312.8046875
+        },
+        "requestRoundTripMs": {
+          "count": 256,
+          "min": 273.44387500000084,
+          "p50": 313.992209,
+          "p75": 324.3889999999992,
+          "p99": 437.16937499999995,
+          "max": 444.08083399999987,
+          "mean": 315.4818440781253
+        },
+        "returnValueObservationMs": {
+          "count": 256,
+          "min": 271,
+          "p50": 312,
+          "p75": 322,
+          "p99": 425,
+          "max": 429,
+          "mean": 312.8046875
+        },
+        "errors": []
+      },
+      "load": {
+        "launchLagMs": {
+          "count": 4,
+          "min": 0.39912500000014006,
+          "p50": 3.382334000000128,
+          "p75": 3.8495000000000346,
+          "p99": 4.0614170000001195,
+          "max": 4.0614170000001195,
+          "mean": 2.9230940000001056
+        },
+        "inFlightSamples": [
+          {
+            "elapsedMs": 12.30925000000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 263.014459,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 513.2079999999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 764.2821670000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1014.913417,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1265.3321250000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1516.4700420000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1767.0795839999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2017.272792,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2268.1798340000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2518.1552089999996,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2768.1422089999996,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3019.533834,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3270.2088750000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3520.8914589999995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3771.146125,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4022.504334,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4272.014416999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4522.6248749999995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4772.32925,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5023.21775,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5274.126,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5525.1287919999995,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5775.931584,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6025.324417,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6275.948875,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6526.675125,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6777.376249999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7027.412875,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7277.308792,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7527.725917,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7777.1142500000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8027.295083999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8278.003042,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8528.576875,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8778.659375,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9028.8835,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9279.019209,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9529.789166999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9779.821375,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10030.357167,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10280.374209,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10530.903084,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10780.822584,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11031.03975,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11282.080834,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11533.159209,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11784.29575,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12034.539542,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12285.46925,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12535.412917,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12786.477917,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13036.607875,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13287.298999999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13537.159083999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13788.408917,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14038.277542,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14288.759334,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14539.393042,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14789.528666999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 15040.033167000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 15290.254292000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 15540.245749999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 15790.732499999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 16041.242167,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 16291.309624999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 16541.871292,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 16791.139458999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 17041.715667,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 17291.054541999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 17541.794834,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 17792.31175,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 18043.4905,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 18293.831917,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 18543.746167,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 18793.22025,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 19043.551709,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 19294.909709,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 19545.387917,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 19796.011417,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 20000.100374999998,
+            "inFlight": 4
+          }
+        ],
+        "endBacklog": 4,
+        "backlogSlopePerSecond": 0,
+        "drainMs": 198.3469589999986
+      },
+      "platformaticWorld": {
+        "appId": "w1-t0-19233-1789864837405",
+        "serviceUrl": "http://127.0.0.1:3050",
+        "timingSource": "application request-to-return-value duration"
+      }
+    },
+    {
+      "topology": "t0",
+      "concurrency": 4,
+      "repetition": 2,
+      "runnerWorkers": 2,
+      "pollIntervalMs": 20,
+      "prepopulation": {
+        "count": 0,
+        "durationMs": 0
+      },
+      "url": "http://127.0.0.1:3041",
+      "ping": {
+        "requests": 4000,
+        "errors": 0,
+        "timeouts": 0,
+        "requestsPerSecond": 200,
+        "latencyMs": {
+          "min": 1,
+          "p50": 0,
+          "p75": 1,
+          "p99": 20,
+          "p99_9": 22,
+          "max": 24,
+          "mean": 2.02
+        }
+      },
+      "workflows": {
+        "scheduled": 246,
+        "started": 246,
+        "completed": 246,
+        "failed": 0,
+        "completionsDuringWindow": 242,
+        "completionsPerSecond": 12.1,
+        "stepsDuringWindow": 4840,
+        "stepsPerSecond": 242,
+        "runtimeReadErrors": 0,
+        "runtimeMs": {
+          "count": 246,
+          "min": 255,
+          "p50": 321,
+          "p75": 333,
+          "p99": 416,
+          "max": 451,
+          "mean": 324.9349593495935
+        },
+        "requestRoundTripMs": {
+          "count": 246,
+          "min": 256.7013749999969,
+          "p50": 322.6913340000028,
+          "p75": 335.61454199999935,
+          "p99": 423.70237500000076,
+          "max": 463.3099999999977,
+          "mean": 327.28844987804877
+        },
+        "returnValueObservationMs": {
+          "count": 246,
+          "min": 255,
+          "p50": 321,
+          "p75": 333,
+          "p99": 416,
+          "max": 451,
+          "mean": 324.9349593495935
+        },
+        "errors": []
+      },
+      "load": {
+        "launchLagMs": {
+          "count": 4,
+          "min": 1.0569170000017039,
+          "p50": 1.3962500000016007,
+          "p75": 1.5933750000003783,
+          "p99": 1.7654580000016722,
+          "max": 1.7654580000016722,
+          "mean": 1.4530000000013388
+        },
+        "inFlightSamples": [
+          {
+            "elapsedMs": 7.895416999999725,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 259.0006250000006,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 508.9855830000015,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 759.0499999999993,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1008.6697920000006,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1259.028624999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1509.1025829999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1758.7016250000015,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2008.6915829999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2260.7006250000013,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2511.014542000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2762.5786249999983,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3011.6886669999985,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3262.8357499999984,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3513.582624999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3763.138167000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4012.883417000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4263.990916999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4515.065291999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4765.723582999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5017.505874999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5266.837583,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5518.270917000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5768.1235830000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6018.586791999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6268.374333,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6518.068542000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6767.970499999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7018.482583000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7268.168957999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7517.792000000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7768.854374999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8019.480667,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8269.295666999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8518.893417000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8769.237125000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9019.274999999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9269.366292000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9519.354541999997,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9770.408082999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10020.540208000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10270.436791999997,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10521.238416999997,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10771.842832999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11022.552583,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11272.079583000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11522.965332999996,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11773.777917000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12024.328167000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12273.943499999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12524.952916999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12775.382875,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13024.710167000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13274.972292000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13526.381833000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13777.092500000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14028.136999999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14278.256208000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14529.666000000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14779.427625,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 15030.162124999999,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 15280.421166999997,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 15531.605916999997,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 15781.949833000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 16032.447541999998,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 16282.812667000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 16533.056125,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 16784.162417000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 17035.210167,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 17285.306500000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 17535.508625,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 17785.014375000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 18035.952500000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 18286.154208000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 18537.267458,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 18787.105916999997,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 19037.900167000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 19288.345458,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 19538.962375,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 19790.000417,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 20000.018417000003,
+            "inFlight": 4
+          }
+        ],
+        "endBacklog": 4,
+        "backlogSlopePerSecond": 0,
+        "drainMs": 201.92749999999796
+      },
+      "platformaticWorld": {
+        "appId": "w1-t0-19233-1789864860347",
+        "serviceUrl": "http://127.0.0.1:3050",
+        "timingSource": "application request-to-return-value duration"
+      }
+    },
+    {
+      "topology": "t0",
+      "concurrency": 4,
+      "repetition": 3,
+      "runnerWorkers": 2,
+      "pollIntervalMs": 20,
+      "prepopulation": {
+        "count": 0,
+        "durationMs": 0
+      },
+      "url": "http://127.0.0.1:3041",
+      "ping": {
+        "requests": 4000,
+        "errors": 0,
+        "timeouts": 0,
+        "requestsPerSecond": 200,
+        "latencyMs": {
+          "min": 1,
+          "p50": 0,
+          "p75": 1,
+          "p99": 14,
+          "p99_9": 20,
+          "max": 22,
+          "mean": 1.12
+        }
+      },
+      "workflows": {
+        "scheduled": 236,
+        "started": 236,
+        "completed": 236,
+        "failed": 0,
+        "completionsDuringWindow": 232,
+        "completionsPerSecond": 11.6,
+        "stepsDuringWindow": 4640,
+        "stepsPerSecond": 232,
+        "runtimeReadErrors": 0,
+        "runtimeMs": {
+          "count": 236,
+          "min": 274,
+          "p50": 333,
+          "p75": 348,
+          "p99": 463,
+          "max": 464,
+          "mean": 339.45338983050846
+        },
+        "requestRoundTripMs": {
+          "count": 236,
+          "min": 276.09424999999464,
+          "p50": 334.6499580000018,
+          "p75": 350.09758399999555,
+          "p99": 470.8329589999994,
+          "max": 472.26220900000044,
+          "mean": 341.6242589915252
+        },
+        "returnValueObservationMs": {
+          "count": 236,
+          "min": 274,
+          "p50": 333,
+          "p75": 348,
+          "p99": 463,
+          "max": 464,
+          "mean": 339.45338983050846
+        },
+        "errors": []
+      },
+      "load": {
+        "launchLagMs": {
+          "count": 4,
+          "min": 0,
+          "p50": 0,
+          "p75": 0,
+          "p99": 0.27354100000229664,
+          "max": 0.27354100000229664,
+          "mean": 0.06838525000057416
+        },
+        "inFlightSamples": [
+          {
+            "elapsedMs": 7.653750000004948,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 258.1293750000041,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 509.0119160000031,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 759.2902080000058,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1008.5485410000038,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1258.9305830000012,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1508.580541000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 1758.9761660000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2008.9505410000056,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2259.794833,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2509.7558750000026,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 2759.7893750000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3009.536708000007,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3260.788625000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3512.188083000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 3763.228750000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4014.8254580000066,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4265.625291000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4516.3450410000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 4767.532583,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5018.709750000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5270.130666000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5520.176208000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 5771.305125000006,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6020.821291,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6271.723833000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6522.0607910000035,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 6773.488708000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7022.986666000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7272.964375000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7523.516666000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 7772.746541,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8023.641208000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8273.614083,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8524.555583000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 8776.334833,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9026.807541000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9276.781708000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9527.427333000007,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 9777.823791000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10028.851500000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10278.618541000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10530.042833000007,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 10780.437250000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11030.077375,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11280.941375000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11531.436583000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 11782.040541000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12032.920083000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12284.440375000006,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12534.172541,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 12784.412833000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13034.411,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13284.380958000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13534.629791000007,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 13785.805083000007,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14036.805375000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14287.344333000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14537.714458000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 14789.524125000004,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 15040.656458000005,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 15291.802833000002,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 15542.516166000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 15792.622291000007,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 16043.255291000001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 16293.177958,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 16543.500541,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 16794.474708,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 17044.386916000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 17294.927166,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 17545.504833000006,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 17796.237125000007,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 18045.69625,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 18296.330541000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 18547.363790999996,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 18797.813041,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 19047.755791000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 19298.61195800001,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 19549.212333000003,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 19798.639125,
+            "inFlight": 4
+          },
+          {
+            "elapsedMs": 20000.284874999998,
+            "inFlight": 4
+          }
+        ],
+        "endBacklog": 4,
+        "backlogSlopePerSecond": 0,
+        "drainMs": 185.90329100000963
+      },
+      "platformaticWorld": {
+        "appId": "w1-t0-19233-1789864883070",
+        "serviceUrl": "http://127.0.0.1:3050",
+        "timingSource": "application request-to-return-value duration"
+      }
+    }
+  ]
+}

@@ -1,0 +1,375 @@
+{
+  "date": "2026-09-20T00:23:47.403Z",
+  "node": "v24.19.0",
+  "candidateRoot": "/Users/batman/src/platformatic/workflow-sdk-serialization-pr",
+  "controlRoot": "/Users/batman/src/platformatic/workflow-sdk-latest-control",
+  "candidateCommit": "9a3c0625f",
+  "controlCommit": "7840c15617c801e0df8f0a85145f43de25f96cc4",
+  "cases": [
+    {
+      "name": "ascii-256KiB",
+      "plainBytes": 262152,
+      "compressedCandidateBytes": 46,
+      "compressedControlBytes": 46,
+      "encryptedCandidateBytes": 78,
+      "encryptedControlBytes": 78,
+      "candidateSerializePlainUs": {
+        "medianUs": 2375,
+        "samplesUs": [
+          2349.7920000000076,
+          2584.874999999997,
+          2624.333000000007,
+          2331.5410000000015,
+          2375
+        ]
+      },
+      "controlSerializePlainUs": {
+        "medianUs": 2381.583000000006,
+        "samplesUs": [
+          2381.583000000006,
+          2606.0829999999983,
+          2567.625000000007,
+          2354.8749999999927,
+          2194.790999999995
+        ]
+      },
+      "plainRatio": 1.0027717894736867,
+      "candidateSerializeCompressedUs": {
+        "medianUs": 2351.959000000008,
+        "samplesUs": [
+          2394.2910000000097,
+          2823.9169999999945,
+          2318.584000000001,
+          2351.959000000008,
+          1340.4999999999916
+        ]
+      },
+      "controlSerializeCompressedUs": {
+        "medianUs": 2370.62499999999,
+        "samplesUs": [
+          2445.6249999999927,
+          2739.0840000000053,
+          2368.7500000000055,
+          2370.62499999999,
+          1001.0000000000048
+        ]
+      },
+      "compressedRatio": 1.0079363628362492
+    },
+    {
+      "name": "html-controls-256KiB",
+      "plainBytes": 491528,
+      "compressedCandidateBytes": 95,
+      "compressedControlBytes": 95,
+      "encryptedCandidateBytes": 127,
+      "encryptedControlBytes": 127,
+      "candidateSerializePlainUs": {
+        "medianUs": 7554.959000000025,
+        "samplesUs": [
+          7996.833999999993,
+          7367.457999999985,
+          8414.000000000016,
+          7135.625000000005,
+          7554.959000000025
+        ]
+      },
+      "controlSerializePlainUs": {
+        "medianUs": 8046.6669999999995,
+        "samplesUs": [
+          8046.6669999999995,
+          7565.665999999993,
+          8294.04199999999,
+          8264.583999999984,
+          5236.957999999987
+        ]
+      },
+      "plainRatio": 1.0650841387756005,
+      "candidateSerializeCompressedUs": {
+        "medianUs": 7991.792000000004,
+        "samplesUs": [
+          8276.124999999993,
+          8999.457999999975,
+          6973.749999999995,
+          7991.792000000004,
+          3254.2080000000055
+        ]
+      },
+      "controlSerializeCompressedUs": {
+        "medianUs": 7139.375000000001,
+        "samplesUs": [
+          6914.332999999999,
+          8642.249999999989,
+          7139.375000000001,
+          7706.124999999985,
+          2086.9169999999995
+        ]
+      },
+      "compressedRatio": 0.8933384402396856
+    },
+    {
+      "name": "unicode-fallback-256K-UTF16-units",
+      "plainBytes": 524296,
+      "compressedCandidateBytes": 81,
+      "compressedControlBytes": 81,
+      "encryptedCandidateBytes": 113,
+      "encryptedControlBytes": 113,
+      "candidateSerializePlainUs": {
+        "medianUs": 5951.915999999983,
+        "samplesUs": [
+          6381.458999999978,
+          5819.125000000014,
+          5917.167000000007,
+          6085.082999999997,
+          5951.915999999983
+        ]
+      },
+      "controlSerializePlainUs": {
+        "medianUs": 6003.250000000008,
+        "samplesUs": [
+          6315.7080000000005,
+          5795.500000000004,
+          6003.250000000008,
+          6140.666999999979,
+          4545.292000000018
+        ]
+      },
+      "plainRatio": 1.0086247856992647,
+      "candidateSerializeCompressedUs": {
+        "medianUs": 5950.125000000015,
+        "samplesUs": [
+          6161.4580000000105,
+          5848.5829999999905,
+          6167.957999999999,
+          5950.125000000015,
+          3062.5
+        ]
+      },
+      "controlSerializeCompressedUs": {
+        "medianUs": 5968.291999999991,
+        "samplesUs": [
+          5703.584000000006,
+          5968.291999999991,
+          6150.791999999996,
+          5986.958999999984,
+          1534.7909999999843
+        ]
+      },
+      "compressedRatio": 1.0030532131677867
+    },
+    {
+      "name": "unicode-separators",
+      "plainBytes": 212,
+      "compressedCandidateBytes": 212,
+      "compressedControlBytes": 212,
+      "encryptedCandidateBytes": 244,
+      "encryptedControlBytes": 244,
+      "candidateSerializePlainUs": {
+        "medianUs": 34.99999999999659,
+        "samplesUs": [
+          47.75000000000773,
+          46.709000000021206,
+          34.99999999999659,
+          33.542000000011285,
+          32.7090000000112
+        ]
+      },
+      "controlSerializePlainUs": {
+        "medianUs": 34.66600000001563,
+        "samplesUs": [
+          51.374999999978854,
+          39.70800000001873,
+          34.66600000001563,
+          33.54100000001381,
+          24.91599999999039
+        ]
+      },
+      "plainRatio": 0.9904571428576859,
+      "candidateSerializeCompressedUs": {
+        "medianUs": 33.58399999999051,
+        "samplesUs": [
+          50.3750000000025,
+          35.833000000025095,
+          33.291999999988775,
+          33.58399999999051,
+          19.333000000017364
+        ]
+      },
+      "controlSerializeCompressedUs": {
+        "medianUs": 33.50000000000364,
+        "samplesUs": [
+          48.87500000000955,
+          35.50000000001319,
+          33.50000000000364,
+          33.04199999999469,
+          9.999999999990905
+        ]
+      },
+      "compressedRatio": 0.9974988089570362
+    },
+    {
+      "name": "incompressible-256KiB",
+      "plainBytes": 281381,
+      "compressedCandidateBytes": 225031,
+      "compressedControlBytes": 225031,
+      "encryptedCandidateBytes": 225063,
+      "encryptedControlBytes": 225063,
+      "candidateSerializePlainUs": {
+        "medianUs": 5602.832999999975,
+        "samplesUs": [
+          5467.458999999991,
+          5698.417000000007,
+          5607.540999999969,
+          5602.832999999975,
+          5593.33300000003
+        ]
+      },
+      "controlSerializePlainUs": {
+        "medianUs": 5574.041000000023,
+        "samplesUs": [
+          5481.08400000001,
+          5675.166999999988,
+          5642.9580000000215,
+          5574.041000000023,
+          5250.958000000026
+        ]
+      },
+      "plainRatio": 0.9948611711254017,
+      "candidateSerializeCompressedUs": {
+        "medianUs": 5570.334000000003,
+        "samplesUs": [
+          5514.541999999978,
+          5599.874999999997,
+          5649.916999999959,
+          5570.334000000003,
+          3673.3750000000214
+        ]
+      },
+      "controlSerializeCompressedUs": {
+        "medianUs": 5611.458999999968,
+        "samplesUs": [
+          5620.916999999991,
+          5611.458999999968,
+          5627.83300000001,
+          5571.792000000016,
+          2378.5409999999843
+        ]
+      },
+      "compressedRatio": 1.0073828607045763
+    },
+    {
+      "name": "typed-map-set-date",
+      "plainBytes": 6384,
+      "compressedCandidateBytes": 1531,
+      "compressedControlBytes": 1531,
+      "encryptedCandidateBytes": 1563,
+      "encryptedControlBytes": 1563,
+      "candidateSerializePlainUs": {
+        "medianUs": 317.875000000015,
+        "samplesUs": [
+          374.41599999999653,
+          297.54199999996445,
+          306.45800000002055,
+          317.875000000015,
+          329.91699999996627
+        ]
+      },
+      "controlSerializePlainUs": {
+        "medianUs": 320.7909999999856,
+        "samplesUs": [
+          346.6670000000249,
+          295.5830000000219,
+          321.41699999999673,
+          320.7909999999856,
+          256.9159999999897
+        ]
+      },
+      "plainRatio": 1.0091734172236586,
+      "candidateSerializeCompressedUs": {
+        "medianUs": 323.2919999999808,
+        "samplesUs": [
+          323.2919999999808,
+          294.2499999999768,
+          328.29199999997627,
+          328.16700000000765,
+          168.62500000002
+        ]
+      },
+      "controlSerializeCompressedUs": {
+        "medianUs": 308.3340000000021,
+        "samplesUs": [
+          308.3340000000021,
+          293.2079999999928,
+          332.12499999996226,
+          331.04100000002745,
+          92.83299999998462
+        ]
+      },
+      "compressedRatio": 0.9537322296871571
+    },
+    {
+      "name": "sparse-array",
+      "plainBytes": 67,
+      "compressedCandidateBytes": 67,
+      "compressedControlBytes": 67,
+      "encryptedCandidateBytes": 99,
+      "encryptedControlBytes": 99,
+      "candidateSerializePlainUs": {
+        "medianUs": 79.29100000001199,
+        "samplesUs": [
+          78.54199999997036,
+          79.29100000001199,
+          75.33300000000054,
+          101.50000000004411,
+          80.0830000000019
+        ]
+      },
+      "controlSerializePlainUs": {
+        "medianUs": 79.79100000000017,
+        "samplesUs": [
+          79.79100000000017,
+          77.91700000001356,
+          85.41700000000674,
+          94.12500000001955,
+          59.12500000005139
+        ]
+      },
+      "plainRatio": 1.006305885913762,
+      "candidateSerializeCompressedUs": {
+        "medianUs": 80.29199999998582,
+        "samplesUs": [
+          80.29199999998582,
+          76.66699999998627,
+          95.37499999999,
+          84.20799999998962,
+          41.12500000002228
+        ]
+      },
+      "controlSerializeCompressedUs": {
+        "medianUs": 80.08299999994506,
+        "samplesUs": [
+          80.08299999994506,
+          75.87499999999636,
+          98.16599999999198,
+          82.62500000000728,
+          21.958999999981188
+        ]
+      },
+      "compressedRatio": 0.997397000946037
+    }
+  ],
+  "malformedResults": [
+    {
+      "name": "candidate",
+      "threw": true,
+      "errorName": "SyntaxError",
+      "message": "Unexpected token '\u0000', \"\u0000�\u0001\" is not valid JSON"
+    },
+    {
+      "name": "control",
+      "threw": true,
+      "errorName": "SyntaxError",
+      "message": "Unexpected token '\u0000', \"\u0000�\u0001\" is not valid JSON"
+    }
+  ],
+  "pass": true
+}

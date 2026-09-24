@@ -1,0 +1,35 @@
+{
+  "candidateBranch": "perf/sdk-source-sharding-gates",
+  "candidateCommit": "9030c92e0",
+  "baseCommit": "7840c15617c801e0df8f0a85145f43de25f96cc4",
+  "runtimeSelector": [
+    {
+      "node": "v22.23.2",
+      "platform": "linux",
+      "arch": "arm64",
+      "pass": true,
+      "decodedBytes": 21,
+      "cacheKeys": ["b0", "b1"]
+    },
+    {
+      "node": "v24.21.0",
+      "platform": "linux",
+      "arch": "arm64",
+      "pass": true,
+      "decodedBytes": 21,
+      "cacheKeys": ["b0", "b1"]
+    }
+  ],
+  "typescriptBuild": {
+    "image": "node:22-bookworm",
+    "packages": ["@workflow/utils", "@workflow/errors", "@workflow/core", "@workflow/builders"],
+    "pass": true,
+    "note": "Clean install and TypeScript build; unchanged SWC WASM package was not rebuilt because the base image has no Rust toolchain."
+  },
+  "mixedWorld": {
+    "worldCommit": "b2598c5d729d820124156c2572a88fbb81c61cdc",
+    "benchmark": "rn-source-sharding-gates-mixed-world-old.json",
+    "failures": 0,
+    "pass": true
+  }
+}

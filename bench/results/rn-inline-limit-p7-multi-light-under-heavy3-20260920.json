@@ -1,0 +1,445 @@
+{
+  "benchmark": "W1",
+  "timestamp": "2026-09-21T00:12:49.523Z",
+  "system": {
+    "hostname": "zion",
+    "platform": "darwin",
+    "release": "27.0.0",
+    "cpus": 14,
+    "node": "v24.19.0"
+  },
+  "config": {
+    "topology": "t0",
+    "duration": 12,
+    "pingRps": 100,
+    "pingConnections": 20,
+    "workflowRpsExplicit": false,
+    "concurrency": 1,
+    "repetitions": 1,
+    "steps": 10,
+    "payloadBytes": 1024,
+    "workflowMode": "fanout",
+    "stepDelayMs": 0,
+    "slowEvery": 0,
+    "prepopulateEvents": 0,
+    "pollIntervalMs": 20,
+    "workflowSdkRoot": "/Users/batman/src/platformatic/workflow-sdk-latest-control",
+    "platformaticWorldRoot": "/Users/batman/src/platformatic/platformatic-world-latest-control",
+    "worldDatabaseUrl": "postgresql://wf:REDACTED@127.0.0.1:5434/p7_multi_concurrent6_20260920",
+    "worldServicePort": 3174,
+    "worldMetricsPort": 9204,
+    "basePort": 3054,
+    "wattConfig": "watt.json",
+    "wattConfigExplicit": false,
+    "runnerWorkers": 2,
+    "runnerWorkersExplicit": false,
+    "output": "/Users/batman/src/platformatic/workflowsdk-in-watt/bench/results/rn-inline-limit-p7-multi-light-under-heavy3-20260920.json",
+    "keepData": false,
+    "pprof": false,
+    "fsProbe": false,
+    "runtimeProbe": false,
+    "sessionCostProbe": false,
+    "databaseProbe": false,
+    "worldProbe": false,
+    "effectivePollIntervalMs": 20
+  },
+  "aggregates": [
+    {
+      "concurrency": 1,
+      "topologies": {
+        "t0": {
+          "repetitions": 1,
+          "ping": {
+            "p50Ms": {
+              "repetitions": 1,
+              "median": 0,
+              "min": 0,
+              "max": 0
+            },
+            "p99Ms": {
+              "repetitions": 1,
+              "median": 11,
+              "min": 11,
+              "max": 11
+            },
+            "p99_9Ms": {
+              "repetitions": 1,
+              "median": 11,
+              "min": 11,
+              "max": 11
+            }
+          },
+          "workflows": {
+            "completionsPerSecond": {
+              "repetitions": 1,
+              "median": 7.166667,
+              "min": 7.166667,
+              "max": 7.166667
+            },
+            "stepsPerSecond": {
+              "repetitions": 1,
+              "median": 71.666667,
+              "min": 71.666667,
+              "max": 71.666667
+            },
+            "runtimeP50Ms": {
+              "repetitions": 1,
+              "median": 98,
+              "min": 98,
+              "max": 98
+            },
+            "observationP50Ms": {
+              "repetitions": 1,
+              "median": 98,
+              "min": 98,
+              "max": 98
+            },
+            "requestRoundTripP50Ms": {
+              "repetitions": 1,
+              "median": 100.548,
+              "min": 100.548,
+              "max": 100.548
+            },
+            "requestRoundTripP99Ms": {
+              "repetitions": 1,
+              "median": 2289.956125,
+              "min": 2289.956125,
+              "max": 2289.956125
+            },
+            "requestRoundTripMaxMs": {
+              "repetitions": 1,
+              "median": 2289.956125,
+              "min": 2289.956125,
+              "max": 2289.956125
+            },
+            "failed": 0
+          },
+          "fsProbe": {
+            "fsOpsPerStep": {
+              "repetitions": 0
+            },
+            "fsMsPerStep": {
+              "repetitions": 0
+            }
+          },
+          "load": {
+            "launchLagP99Ms": {
+              "repetitions": 1,
+              "median": 0.312542,
+              "min": 0.312542,
+              "max": 0.312542
+            },
+            "backlogSlopePerSecond": {
+              "repetitions": 1,
+              "median": 0,
+              "min": 0,
+              "max": 0
+            },
+            "endBacklog": {
+              "repetitions": 1,
+              "median": 1,
+              "min": 1,
+              "max": 1
+            },
+            "drainMs": {
+              "repetitions": 1,
+              "median": 43.502333,
+              "min": 43.502333,
+              "max": 43.502333
+            }
+          }
+        }
+      },
+      "runnerWorkers": 2,
+      "sweepDecision": {
+        "stop": false,
+        "reasons": []
+      }
+    }
+  ],
+  "results": [
+    {
+      "topology": "t0",
+      "concurrency": 1,
+      "repetition": 1,
+      "runnerWorkers": 2,
+      "pollIntervalMs": 20,
+      "prepopulation": {
+        "count": 0,
+        "durationMs": 0
+      },
+      "url": "http://127.0.0.1:3054",
+      "ping": {
+        "requests": 1200,
+        "errors": 0,
+        "timeouts": 0,
+        "requestsPerSecond": 100,
+        "latencyMs": {
+          "min": 1,
+          "p50": 0,
+          "p75": 2,
+          "p99": 11,
+          "p99_9": 11,
+          "max": 11,
+          "mean": 1.63
+        }
+      },
+      "workflows": {
+        "scheduled": 87,
+        "started": 87,
+        "completed": 87,
+        "failed": 0,
+        "completionsDuringWindow": 86,
+        "completionsPerSecond": 7.166666666666667,
+        "stepsDuringWindow": 860,
+        "stepsPerSecond": 71.66666666666667,
+        "runtimeReadErrors": 0,
+        "runtimeMs": {
+          "count": 87,
+          "min": 83,
+          "p50": 98,
+          "p75": 110,
+          "p99": 2288,
+          "max": 2288,
+          "mean": 136.45977011494253
+        },
+        "requestRoundTripMs": {
+          "count": 87,
+          "min": 84.31470900000204,
+          "p50": 100.5480000000025,
+          "p75": 112.75250000000051,
+          "p99": 2289.9561250000006,
+          "max": 2289.9561250000006,
+          "mean": 138.42238742528764
+        },
+        "returnValueObservationMs": {
+          "count": 87,
+          "min": 83,
+          "p50": 98,
+          "p75": 110,
+          "p99": 2288,
+          "max": 2288,
+          "mean": 136.45977011494253
+        },
+        "errors": []
+      },
+      "load": {
+        "launchLagMs": {
+          "count": 1,
+          "min": 0.3125419999996666,
+          "p50": 0.3125419999996666,
+          "p75": 0.3125419999996666,
+          "p99": 0.3125419999996666,
+          "max": 0.3125419999996666,
+          "mean": 0.3125419999996666
+        },
+        "inFlightSamples": [
+          {
+            "elapsedMs": 4.561125000000175,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 255.22666700000082,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 505.3642080000009,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 756.7140830000008,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 1005.8160829999997,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 1256.2177080000001,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 1506.810125,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 1757.2289999999994,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 2006.8448750000007,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 2257.497542000001,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 2507.943625,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 2758.7524169999997,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 3008.7341670000005,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 3259.268083000001,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 3509.7952079999995,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 3760.8097500000003,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 4011.688083000001,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 4261.934083,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 4512.402833,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 4763.655332999999,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 5013.48875,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 5263.310042000001,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 5513.58625,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 5764.474332999998,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 6013.887417000002,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 6264.003917000002,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 6514.222417000001,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 6764.319917000001,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 7015.395,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 7266.159124999998,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 7517.661082999999,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 7768.605667,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 8018.735417,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 8270.715166999998,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 8521.067542,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 8772.131582999998,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 9023.179,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 9273.444625,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 9522.942,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 9773.501417,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 10024.036958,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 10274.980625,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 10525.659167000002,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 10776.528917,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 11026.967250000002,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 11277.978416999998,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 11529.147417,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 11779.874042,
+            "inFlight": 1
+          },
+          {
+            "elapsedMs": 11999.070333,
+            "inFlight": 1
+          }
+        ],
+        "endBacklog": 1,
+        "backlogSlopePerSecond": 0,
+        "drainMs": 43.50233300000036
+      },
+      "platformaticWorld": {
+        "appId": "w1-t0-94791-1789949569525",
+        "serviceUrl": "http://127.0.0.1:3174",
+        "timingSource": "application request-to-return-value duration"
+      }
+    }
+  ]
+}
