@@ -111,8 +111,11 @@ probe data is embedded in the raw JSON under `runtimeProbe`.
 
 Matched synchronized T0 profiles captured the same fanout-50 workload:
 
-- [limit 3 flame JSON](rn-inline-limit-p7-flame3-20260920.json), [HTML flame](flames/profiles-2026-09-21T00-04-58.471Z__concurrency-4__rep-1__t0__pprof-cpu-bare-node-0-2026-09-21T00-04-59-756Z.html)
-- [limit 16 flame JSON](rn-inline-limit-p7-flame16-20260920.json), [HTML flame](flames/profiles-2026-09-21T00-05-26.419Z__concurrency-4__rep-1__t0__pprof-cpu-bare-node-0-2026-09-21T00-05-27-901Z.html)
+- [limit 3 flame JSON](rn-inline-limit-p7-flame3-20260920.json)
+- [limit 16 flame JSON](rn-inline-limit-p7-flame16-20260920.json)
+
+The flattened visual flame files are intentionally omitted from this compact
+evidence branch because no active PR body links them directly.
 
 The application CPU normalized from 16.245 to 11.663 ms/step (−28.2%). The
 dominant `runInContext` stack remained visible (16.2% → 17.4% of sampled app

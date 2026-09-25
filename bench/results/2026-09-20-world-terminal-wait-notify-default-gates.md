@@ -49,9 +49,9 @@ this is not introduced by the wait route and is not counted as a gate failure.
 
 ## Flame evidence
 
-Control profiles: [`flames/profiles-2026-09-20T16-44-02.314Z-pprof-cpu-bare-node-0-2026-09-20T16-44-03-803Z.html`](flames/profiles-2026-09-20T16-44-02.314Z-pprof-cpu-bare-node-0-2026-09-20T16-44-03-803Z.html)
-
-Candidate profiles: [`flames/profiles-2026-09-20T16-44-40.179Z-pprof-cpu-world-service-thread-1-0-2026-09-20T16-44-40-181Z.html`](flames/profiles-2026-09-20T16-44-40.179Z-pprof-cpu-world-service-thread-1-0-2026-09-20T16-44-40-181Z.html)
+The matched pprof aggregates are preserved in the raw profile JSON linked from
+the PR body. Flattened visual flame files are intentionally omitted from this
+compact evidence branch because no active PR body links them directly.
 
 The bare-node flame remains dominated by the workflow bundle and VM context
 creation, with GC as the largest named frame. The World service flame remains

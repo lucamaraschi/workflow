@@ -42,7 +42,7 @@ The Node 24 Linux failure was a test-observation bug: the test concatenated `wri
 - [medium candidate](rn2-sdk-medium-candidate-20260919.json) / [medium control](rn2-sdk-medium-control-20260919.json)
 - [logger-enabled candidate](rn2-sdk-debug-candidate-20260920.json) / [logger-enabled control](rn2-sdk-debug-control-20260920.json)
 - [Node 24/Linux full-suite result](rn-node24-sdk-core-test-20260920.json)
-- [candidate flame report](flames/profiles-2026-09-20T00-43-24.367Z__concurrency-4__rep-1__t0__pprof-cpu-bare-node-0-2026-09-20T00-43-25-649Z.md) / [control flame report](flames/profiles-2026-09-20T00-43-55.054Z__concurrency-4__rep-1__t0__pprof-cpu-bare-node-0-2026-09-20T00-43-56-336Z.md)
+- Matched flame aggregates are preserved in the linked benchmark run data above; the flattened visual flame reports are intentionally omitted from this compact evidence branch because no active PR body links them directly.
 
 ## Recommendation
 
